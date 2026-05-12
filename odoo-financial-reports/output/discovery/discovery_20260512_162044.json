@@ -1,0 +1,4058 @@
+{
+  "generated_at": "2026-05-12T16:20:36.566896",
+  "connection": {
+    "url": "https://kamahtech-palme.odoo.com",
+    "database": "kamahtech-palme-prod-13407418",
+    "db_strategy": "env_variable",
+    "db_candidates_tried": [],
+    "api_method": "json-rpc-session",
+    "uid": 49
+  },
+  "version": {
+    "server_version": "17.0+e",
+    "server_version_info": [
+      17,
+      0,
+      0,
+      "final",
+      0,
+      "e"
+    ],
+    "server_serie": "17.0",
+    "protocol_version": 1
+  },
+  "user_companies": {
+    "user": {
+      "id": 49,
+      "name": "Karim Sayed",
+      "login": "karim@palme.com",
+      "lang": "en_US",
+      "tz": "Africa/Cairo",
+      "company_id": [
+        1,
+        "Palme"
+      ],
+      "company_ids": [
+        2,
+        3,
+        1
+      ]
+    },
+    "companies": [
+      {
+        "id": 2,
+        "name": "##Manufactre Palme##",
+        "currency_id": [
+          74,
+          "EGP"
+        ],
+        "country_id": false,
+        "vat": false
+      },
+      {
+        "id": 3,
+        "name": "#\u0628\u0627\u0644\u0645\u064a\u0647#.",
+        "currency_id": [
+          74,
+          "EGP"
+        ],
+        "country_id": [
+          65,
+          "Egypt"
+        ],
+        "vat": false
+      },
+      {
+        "id": 1,
+        "name": "Palme",
+        "currency_id": [
+          74,
+          "EGP"
+        ],
+        "country_id": [
+          65,
+          "Egypt"
+        ],
+        "vat": false
+      }
+    ]
+  },
+  "modules": {
+    "total_installed": 352,
+    "critical": {
+      "account": true,
+      "account_accountant": true,
+      "sale_management": true,
+      "sale": true,
+      "purchase": true,
+      "stock": true
+    },
+    "l10n_modules": [
+      "l10n_eg"
+    ],
+    "all_modules": [
+      "sale_management",
+      "account",
+      "crm",
+      "contract_allowance",
+      "loans",
+      "website",
+      "stock",
+      "account_accountant",
+      "purchase",
+      "point_of_sale",
+      "project",
+      "website_sale",
+      "mrp",
+      "mass_mailing",
+      "timesheet_grid",
+      "web_studio",
+      "hr_holidays",
+      "hr_recruitment",
+      "hr",
+      "abs_split_purchase_rfq",
+      "analtic_po_so",
+      "cost_report",
+      "data_recycle",
+      "kamah_tech_backdate",
+      "kamah_tech_show_order_paid",
+      "pos_order_kamah",
+      "purchase_request",
+      "pw_pos_order_delete_restrict",
+      "request_transfer",
+      "request_transfer_report",
+      "sh_all_in_one_backdate",
+      "sh_journal_restrict",
+      "sh_pos_access_rights",
+      "to_attendance_device",
+      "helpdesk",
+      "website_slides",
+      "planning",
+      "website_event",
+      "mail",
+      "contacts",
+      "calendar",
+      "marketing_automation",
+      "im_livechat",
+      "appointment",
+      "hr_attendance",
+      "iot",
+      "project_todo",
+      "hr_skills",
+      "hr_payroll",
+      "website_hr_recruitment",
+      "hr_contract",
+      "od_journal_sequence",
+      "dropdown_restriction",
+      "pos_discount",
+      "pos_epson_printer",
+      "pos_iot",
+      "pos_loyalty",
+      "pos_mrp",
+      "pos_sale",
+      "pos_sale_loyalty",
+      "pos_settle_due",
+      "pos_preparation_display",
+      "stock_account",
+      "crm_helpdesk",
+      "hr_timesheet",
+      "timer",
+      "account_asset",
+      "hr_work_entry",
+      "hr_work_entry_contract",
+      "hr_work_entry_contract_enterprise",
+      "helpdesk_holidays",
+      "mrp_mps",
+      "mrp_workorder_iot",
+      "planning_contract",
+      "planning_holidays",
+      "quality",
+      "mrp_workorder",
+      "website_crm",
+      "website_crm_sms",
+      "website_sms",
+      "website_sale_dashboard",
+      "website_helpdesk",
+      "website_helpdesk_livechat",
+      "purchase_stock",
+      "purchase_requisition_sale",
+      "purchase_requisition_stock",
+      "hr_payroll_attendance",
+      "hr_payroll_holidays",
+      "hr_payroll_planning",
+      "hr_work_entry_contract_attendance",
+      "hr_work_entry_contract_planning",
+      "hr_work_entry_contract_planning_attendance",
+      "hr_work_entry_holidays",
+      "hr_work_entry_holidays_enterprise",
+      "account_3way_match",
+      "account_audit_trail",
+      "account_auto_transfer",
+      "account_bank_statement_import",
+      "account_bank_statement_import_camt",
+      "account_bank_statement_import_csv",
+      "account_bank_statement_import_ofx",
+      "account_bank_statement_import_qif",
+      "account_base_import",
+      "account_disallowed_expenses",
+      "account_edi_ubl_cii",
+      "account_followup",
+      "account_inter_company_rules",
+      "account_invoice_extract",
+      "account_invoice_extract_purchase",
+      "account_online_synchronization",
+      "account_payment",
+      "account_payment_term",
+      "account_reports",
+      "account_reports_tax_reminder",
+      "analytic",
+      "analytic_enterprise",
+      "appointment_account_payment",
+      "appointment_hr_recruitment",
+      "attachment_indexation",
+      "auth_signup",
+      "auth_totp",
+      "auth_totp_mail",
+      "auth_totp_portal",
+      "barcodes",
+      "barcodes_gs1_nomenclature",
+      "base",
+      "base_automation",
+      "base_automation_hr_contract",
+      "base_geolocalize",
+      "base_import",
+      "base_import_module",
+      "base_install_request",
+      "base_setup",
+      "bi_order_line_with_sequence_number",
+      "bi_pos_hide_cash_control",
+      "bi_pos_hide_refund_button",
+      "bus",
+      "calendar_sms",
+      "contacts_enterprise",
+      "crm_enterprise",
+      "crm_iap_enrich",
+      "crm_iap_mine",
+      "crm_livechat",
+      "crm_sms",
+      "currency_rate_live",
+      "data_merge",
+      "data_merge_crm",
+      "data_merge_helpdesk",
+      "data_merge_project",
+      "data_merge_stock_account",
+      "data_merge_utm",
+      "delivery",
+      "digest",
+      "digest_enterprise",
+      "disable_journal_move_constraint",
+      "dx_pos_receipt_table_design",
+      "eq_backdated_inventory_adjustment",
+      "event",
+      "event_crm",
+      "event_enterprise",
+      "event_sale",
+      "event_sms",
+      "gamification_sale_crm",
+      "google_gmail",
+      "google_recaptcha",
+      "helpdesk_sale",
+      "helpdesk_sms",
+      "hr_attendance_gantt",
+      "hr_contract_reports",
+      "hr_gamification",
+      "hr_gantt",
+      "hr_holidays_attendance",
+      "hr_holidays_contract_gantt",
+      "hr_holidays_gantt",
+      "hr_hourly_cost",
+      "hr_livechat",
+      "hr_mobile",
+      "hr_org_chart",
+      "hr_payroll_account",
+      "hr_recruitment_extract",
+      "hr_recruitment_reports",
+      "hr_recruitment_sms",
+      "hr_skills_slides",
+      "hr_timesheet_attendance",
+      "iap",
+      "iap_crm",
+      "iap_extract",
+      "iap_mail",
+      "im_livechat_mail_bot",
+      "ipi_warehouse_stock_restrictions",
+      "kg_hide_menu",
+      "l10n_eg",
+      "link_tracker",
+      "loyalty",
+      "mail_bot",
+      "mail_bot_hr",
+      "mail_enterprise",
+      "mail_mobile",
+      "marketing_automation_crm",
+      "mass_mailing_crm",
+      "mass_mailing_event",
+      "mass_mailing_sale",
+      "mass_mailing_slides",
+      "mrp_account",
+      "mrp_account_enterprise",
+      "mrp_accountant",
+      "mrp_workorder_hr_account",
+      "partner_autocomplete",
+      "payment",
+      "planning_hr_skills",
+      "portal_rating",
+      "pos_account_reports",
+      "pos_analytic_account",
+      "pos_close_popup_customization",
+      "pos_enterprise",
+      "pos_hr",
+      "pos_hr_mobile",
+      "pos_online_payment",
+      "pos_sale_product_configurator",
+      "pos_user_restrict",
+      "pos_zero_opening_balance",
+      "print_barcode",
+      "privacy_lookup",
+      "product",
+      "product_internal_ref_generator",
+      "project_account",
+      "project_account_asset",
+      "project_enterprise",
+      "project_enterprise_hr",
+      "project_enterprise_hr_contract",
+      "project_helpdesk",
+      "project_holidays",
+      "project_hr_payroll_account",
+      "project_mrp",
+      "project_purchase",
+      "project_sms",
+      "project_timesheet_holidays",
+      "purchase_mrp",
+      "purchase_requisition",
+      "quality_iot",
+      "rating",
+      "report_xlsx",
+      "resource",
+      "rm_hr_attendance_sheet",
+      "sale",
+      "sale_account_accountant",
+      "sale_async_emails",
+      "sale_crm",
+      "sale_invoice_journal_fix",
+      "sale_loyalty",
+      "sale_mrp",
+      "sale_pdf_quote_builder",
+      "sale_planning",
+      "sale_product_configurator",
+      "sale_project",
+      "sale_project_stock",
+      "sale_purchase",
+      "sale_purchase_inter_company_rules",
+      "sale_purchase_stock",
+      "sale_service",
+      "sale_sms",
+      "sale_stock",
+      "sale_timesheet",
+      "sale_timesheet_enterprise",
+      "sale_timesheet_enterprise_holidays",
+      "sales_team",
+      "sms",
+      "snailmail",
+      "snailmail_account",
+      "snailmail_account_followup",
+      "social_media",
+      "spreadsheet",
+      "spreadsheet_account",
+      "spreadsheet_dashboard",
+      "spreadsheet_dashboard_account",
+      "spreadsheet_dashboard_account_accountant",
+      "spreadsheet_dashboard_crm",
+      "spreadsheet_dashboard_edition",
+      "spreadsheet_dashboard_helpdesk",
+      "spreadsheet_dashboard_hr_contract",
+      "spreadsheet_dashboard_hr_payroll",
+      "spreadsheet_dashboard_hr_timesheet",
+      "spreadsheet_dashboard_im_livechat",
+      "spreadsheet_dashboard_mrp_account",
+      "spreadsheet_dashboard_pos_hr",
+      "spreadsheet_dashboard_purchase",
+      "spreadsheet_dashboard_purchase_stock",
+      "spreadsheet_dashboard_sale",
+      "spreadsheet_dashboard_sale_timesheet",
+      "spreadsheet_dashboard_stock",
+      "spreadsheet_dashboard_stock_account",
+      "spreadsheet_dashboard_website_sale",
+      "spreadsheet_edition",
+      "stock_account_enterprise",
+      "stock_accountant",
+      "stock_dropshipping",
+      "stock_enterprise",
+      "stock_sms",
+      "studio_customization",
+      "theme_common",
+      "timesheet_grid_holidays",
+      "to_base",
+      "uom",
+      "utm",
+      "web",
+      "web_cohort",
+      "web_editor",
+      "web_enterprise",
+      "web_gantt",
+      "web_grid",
+      "web_hierarchy",
+      "web_map",
+      "web_mobile",
+      "web_tour",
+      "web_unsplash",
+      "website_appointment_account_payment",
+      "website_appointment_sale",
+      "website_crm_livechat",
+      "website_enterprise",
+      "website_event_crm",
+      "website_event_sale",
+      "website_form_project",
+      "website_google_map",
+      "website_links",
+      "website_livechat",
+      "website_mail",
+      "website_mass_mailing",
+      "website_partner",
+      "website_payment",
+      "website_profile",
+      "website_sale_autocomplete",
+      "website_sale_loyalty",
+      "website_sale_picking",
+      "website_sale_product_configurator",
+      "website_studio",
+      "mass_mailing_themes",
+      "theme_loftspace",
+      "data_cleaning",
+      "gamification",
+      "website_blog",
+      "website_appointment",
+      "website_forum",
+      "hr_recruitment_skills",
+      "payment_custom",
+      "appointment_hr",
+      "appointment_crm",
+      "appointment_sms",
+      "website_appointment_crm",
+      "portal",
+      "onboarding",
+      "http_routing",
+      "phone_validation"
+    ]
+  },
+  "accounting_structure": {
+    "total_accounts": 1069,
+    "account_type_field": "account_type",
+    "sample_accounts": [
+      {
+        "id": 17493,
+        "code": "00001",
+        "name": "\u0628\u0646\u0643 \u0645\u0635\u0631 1489 (copy)",
+        "account_type": "asset_cash"
+      },
+      {
+        "id": 16408,
+        "code": "0102011111111111",
+        "name": "********",
+        "account_type": "asset_fixed"
+      },
+      {
+        "id": 17482,
+        "code": "100000",
+        "name": "\u0627\u0635\u0648\u0644",
+        "account_type": "asset_current"
+      },
+      {
+        "id": 965,
+        "code": "10000001",
+        "name": "Net Inventory Adjustment (Gain/Loss)",
+        "account_type": "expense_direct_cost"
+      },
+      {
+        "id": 16572,
+        "code": "100001",
+        "name": "Liquidity Transfer",
+        "account_type": "asset_current"
+      },
+      {
+        "id": 683,
+        "code": "101000",
+        "name": "Current Assets",
+        "account_type": "expense_direct_cost"
+      },
+      {
+        "id": 1,
+        "code": "101000",
+        "name": "Current Assets",
+        "account_type": "expense_direct_cost"
+      },
+      {
+        "id": 16570,
+        "code": "101001",
+        "name": "cancel",
+        "account_type": "asset_cash"
+      },
+      {
+        "id": 16401,
+        "code": "101004",
+        "name": "Outstanding Receipts",
+        "account_type": "asset_current"
+      },
+      {
+        "id": 718,
+        "code": "10101",
+        "name": "\u0627\u0644\u062e\u0632\u064a\u0646\u0629 \u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629",
+        "account_type": "asset_cash"
+      }
+    ],
+    "journals": [
+      {
+        "id": 240,
+        "name": "Miscellaneous Operations",
+        "type": "general",
+        "code": "MISC",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 239,
+        "name": "Vendor Bills",
+        "type": "purchase",
+        "code": "BILL",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 247,
+        "name": "Tax Adjustments",
+        "type": "general",
+        "code": "TA",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 238,
+        "name": "Customer Invoices",
+        "type": "sale",
+        "code": "INV",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 246,
+        "name": "Inventory Valuation",
+        "type": "general",
+        "code": "STJ",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 1,
+        "name": "Customer Invoices",
+        "type": "sale",
+        "code": "INV",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 80,
+        "name": "\u062e\u0632\u064a\u0646\u0629 \u062f\u0648\u0644\u0627\u0631",
+        "type": "bank",
+        "code": "BNK16",
+        "currency_id": [
+          1,
+          "USD"
+        ],
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 241,
+        "name": "Exchange Difference",
+        "type": "general",
+        "code": "EXCH",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 242,
+        "name": "Cash Basis Taxes",
+        "type": "general",
+        "code": "CABA",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Vendor Bills",
+        "type": "purchase",
+        "code": "BILL",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 699,
+        "name": "\u0627\u0648\u0631\u0627\u0642 \u0642\u0628\u0636",
+        "type": "bank",
+        "code": "BNK99",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Miscellaneous Operations",
+        "type": "general",
+        "code": "MISC",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 8,
+        "name": "Inventory Valuation",
+        "type": "general",
+        "code": "STJ",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 668,
+        "name": "\u0628\u0646\u0643 \u0645\u0635\u0631 1933",
+        "type": "bank",
+        "code": "BNK04",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 686,
+        "name": "\u0641\u064a\u0632\u0627 \u0627\u0631\u0628\u064a\u0633\u0643 \u0643\u0627\u0641\u064a\u0629",
+        "type": "bank",
+        "code": "VIS06",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 709,
+        "name": "\u0641\u064a\u0632\u0627 \u0641\u0631\u0639 \u0627\u0644\u0634\u0631\u0648\u0642",
+        "type": "bank",
+        "code": "VIS07",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 692,
+        "name": "\u0641\u064a\u0632\u0627 \u0641\u0631\u0639 \u0627\u0644\u062a\u0633\u0639\u064a\u0646 2",
+        "type": "bank",
+        "code": "VIS3",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 690,
+        "name": "\u0641\u064a\u0632\u0627 \u0641\u0631\u0639 \u0627\u0644\u0645\u062d\u0643\u0645\u0629 2",
+        "type": "bank",
+        "code": "VIS4",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 687,
+        "name": "\u0641\u064a\u0632\u0627 \u0627\u0631\u0627\u0628\u064a\u0633\u0643 \u0643\u0627\u0641\u064a\u0629 2",
+        "type": "bank",
+        "code": "VIS6",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 710,
+        "name": "\u0641\u064a\u0632\u0627 \u0641\u0631\u0639 \u0627\u0644\u0634\u0631\u0648\u0642 2",
+        "type": "bank",
+        "code": "VIS7",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 670,
+        "name": "\u0639\u0647\u062f\u0629 \u0627\u0644\u062a\u062c\u0645\u0639 \u0627\u0644\u0627\u0648\u0644",
+        "type": "cash",
+        "code": "BR01",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 671,
+        "name": "\u0639\u0647\u062f\u0629 \u0627\u0644\u0628\u0646\u0641\u0633\u062c",
+        "type": "cash",
+        "code": "BR02",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 672,
+        "name": "\u0639\u0647\u062f\u0629 \u0627\u0644\u062a\u0633\u0639\u064a\u0646",
+        "type": "cash",
+        "code": "BR03",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 673,
+        "name": "\u0639\u0647\u062f\u0629 \u0633\u0641\u0646 \u0633\u062a\u0627\u0631",
+        "type": "cash",
+        "code": "BR04",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 674,
+        "name": "\u0639\u0647\u062f\u0629 \u0633\u0627\u0648\u062b \u0628\u0627\u0631\u0643",
+        "type": "cash",
+        "code": "BR05",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 694,
+        "name": "\u0639\u0647\u062f\u0629 \u0627\u0631\u0627\u0628\u064a\u0633\u0643 \u0643\u0627\u0641\u064a\u0647",
+        "type": "cash",
+        "code": "BR06",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 715,
+        "name": "\u0639\u0647\u062f\u0629 \u0627\u0644\u0634\u0631\u0648\u0642",
+        "type": "cash",
+        "code": "BR07",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 675,
+        "name": "\u0639\u0647\u062f\u0629 \u0627\u0631\u0627\u0628\u064a\u0633\u0643",
+        "type": "cash",
+        "code": "BR100",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 685,
+        "name": "\u062e\u0632\u064a\u0646\u0629 \u0627\u0631\u0627\u0628\u064a\u0633\u0643 \u0643\u0627\u0641\u064a\u0629",
+        "type": "cash",
+        "code": "CSH06",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 711,
+        "name": "\u062e\u0632\u064a\u0646\u0629 \u0641\u0631\u0639 \u0627\u0644\u0634\u0631\u0648\u0642",
+        "type": "cash",
+        "code": "CSH07",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 691,
+        "name": "\u062e\u0632\u064a\u0646\u0629 \u0641\u0631\u0639 \u0627\u0644\u062a\u0633\u0639\u064a\u0646 2",
+        "type": "cash",
+        "code": "CSH3",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 689,
+        "name": "\u062e\u0632\u064a\u0646\u0629 \u0633\u0641\u0646 \u0633\u062a\u0627\u0631 2",
+        "type": "cash",
+        "code": "CSH4",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 688,
+        "name": "\u062e\u0632\u064a\u0646\u0629 \u0627\u0631\u0627\u0628\u064a\u0633\u0643 \u0643\u0627\u0641\u064a\u0629 2",
+        "type": "cash",
+        "code": "CSH6",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 712,
+        "name": "\u062e\u0632\u064a\u0646\u0629 \u0641\u0631\u0639 \u0627\u0644\u0634\u0631\u0648\u0642 2",
+        "type": "cash",
+        "code": "CSH7",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 706,
+        "name": "\u062e\u0632\u064a\u0646\u0629 \u0627\u0648\u0644\u0627\u062f \u0632\u064a\u062f\u0627\u0646",
+        "type": "cash",
+        "code": "CSH=3",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 667,
+        "name": "\u0645\u0627\u0643\u064a\u0646\u0629 \u0645\u062f\u0641\u0648\u0639\u0627\u062a \u062c\u064a\u062f\u064a\u0627",
+        "type": "cash",
+        "code": "Pay1",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 677,
+        "name": "\u0641\u0648\u062f\u0627\u0641\u0648\u0646 \u0643\u0627\u0634",
+        "type": "cash",
+        "code": "pay2",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 678,
+        "name": "\u0634\u0631\u0643\u0629 \u0645\u0627\u0646\u0643\u0633",
+        "type": "cash",
+        "code": "pay3",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 707,
+        "name": "\u0627\u0635\u0648\u0644 \u062b\u0627\u0628\u062a\u0629",
+        "type": "general",
+        "code": "Asset",
+        "currency_id": false,
+        "company_id": [
+          2,
+          "##Manufactre Palme##"
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Exchange Difference",
+        "type": "general",
+        "code": "EXCH",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 248,
+        "name": "IFRS 16",
+        "type": "general",
+        "code": "IFRS",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 698,
+        "name": "Point of Sale",
+        "type": "general",
+        "code": "pos1",
+        "currency_id": false,
+        "company_id": [
+          2,
+          "##Manufactre Palme##"
+        ]
+      },
+      {
+        "id": 228,
+        "name": "Customer Invoices",
+        "type": "sale",
+        "code": "INV",
+        "currency_id": false,
+        "company_id": [
+          2,
+          "##Manufactre Palme##"
+        ]
+      },
+      {
+        "id": 615,
+        "name": "\u062e\u0632\u064a\u0646\u0629 \u062f\u0648\u0644\u0627\u0631",
+        "type": "bank",
+        "code": "CSH$1",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 115,
+        "name": "\u0639\u0647\u062f \u0627\u0644\u062a\u062c\u0645\u0639 \u0627\u0644\u0627\u0648\u0644",
+        "type": "cash",
+        "code": "CSH30",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 230,
+        "name": "Miscellaneous Operations",
+        "type": "general",
+        "code": "MISC",
+        "currency_id": false,
+        "company_id": [
+          2,
+          "##Manufactre Palme##"
+        ]
+      },
+      {
+        "id": 616,
+        "name": "\u062e\u0632\u064a\u0646\u0629 \u0641\u0631\u0639 \u0627\u0644\u062a\u062c\u0645\u0639 \u0627\u0644\u0627\u0648\u0644 2",
+        "type": "cash",
+        "code": "CSH1",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 234,
+        "name": "\u0627\u0644\u062e\u0632\u064a\u0646\u0629 \u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0647",
+        "type": "cash",
+        "code": "CSH2",
+        "currency_id": false,
+        "company_id": [
+          2,
+          "##Manufactre Palme##"
+        ]
+      },
+      {
+        "id": 116,
+        "name": "\u0639\u0647\u062f \u0627\u0644\u0628\u0646\u0641\u0633\u062c",
+        "type": "cash",
+        "code": "CSH31",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 617,
+        "name": "\u0641\u064a\u0632\u0627 \u0627\u0644\u062a\u062c\u0645\u0639 \u0627\u0644\u0627\u0648\u0644 2",
+        "type": "bank",
+        "code": "VIS1",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 663,
+        "name": "\u0639\u0647\u062f\u0629 \u0627\u0644\u0645\u0635\u0646\u0639",
+        "type": "cash",
+        "code": "CSH1",
+        "currency_id": false,
+        "company_id": [
+          2,
+          "##Manufactre Palme##"
+        ]
+      },
+      {
+        "id": 117,
+        "name": "\u0639\u0647\u062f \u0627\u0644\u062a\u0633\u0639\u064a\u0646",
+        "type": "cash",
+        "code": "CSH32",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 664,
+        "name": "Qnb 4563 \u0628\u0646\u0643",
+        "type": "bank",
+        "code": "BNK1",
+        "currency_id": false,
+        "company_id": [
+          2,
+          "##Manufactre Palme##"
+        ]
+      },
+      {
+        "id": 618,
+        "name": "\u062e\u0632\u064a\u0646\u0629 \u0641\u0631\u0639 \u0627\u0644\u0628\u0646\u0641\u0633\u062c 2",
+        "type": "cash",
+        "code": "CSH2",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 118,
+        "name": "\u0639\u0647\u062f \u0633\u0641\u0646 \u0633\u062a\u0627\u0631",
+        "type": "cash",
+        "code": "CSH33",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 665,
+        "name": "Qnb \u0628\u0646\u0643",
+        "type": "bank",
+        "code": "BNK2",
+        "currency_id": false,
+        "company_id": [
+          2,
+          "##Manufactre Palme##"
+        ]
+      },
+      {
+        "id": 619,
+        "name": "\u0641\u064a\u0632\u0627 \u0641\u0631\u0639 \u0627\u0644\u0628\u0646\u0641\u0633\u062c 2",
+        "type": "bank",
+        "code": "VIS2",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 119,
+        "name": "\u0639\u0647\u062f \u0633\u0627\u0648\u062b \u0628\u0627\u0631\u0643",
+        "type": "cash",
+        "code": "CSH34",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 620,
+        "name": "\u0628\u0646\u0643 \u0645\u0635\u0631 1489",
+        "type": "bank",
+        "code": "BNK03",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 120,
+        "name": "\u0639\u0647\u062f \u0627\u0631\u0627\u0628\u064a\u0633\u0643",
+        "type": "cash",
+        "code": "CSH35",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 231,
+        "name": "Inventory Valuation",
+        "type": "general",
+        "code": "STJ",
+        "currency_id": false,
+        "company_id": [
+          2,
+          "##Manufactre Palme##"
+        ]
+      },
+      {
+        "id": 656,
+        "name": "\u0628\u0646\u0643 \u0645\u0635\u0631 199",
+        "type": "bank",
+        "code": "BNK3",
+        "currency_id": [
+          74,
+          "EGP"
+        ],
+        "company_id": [
+          2,
+          "##Manufactre Palme##"
+        ]
+      },
+      {
+        "id": 621,
+        "name": "\u0641\u064a\u0632\u0627 \u0645\u0642\u0644\u0629 \u0639\u0632 \u0627\u0644\u062f\u064a\u0646",
+        "type": "bank",
+        "code": "VIS98",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 121,
+        "name": "\u0627\u0628\u0644 \u0628\u0627\u0649 \u0648 \u0627\u0643\u0644\u064a\u0631 \u0648 \u062f\u0648\u0646\u0627\u062a\u0633",
+        "type": "general",
+        "code": "MIS20",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 657,
+        "name": "\u0628\u0646\u0643 \u0645\u0635\u0631 655",
+        "type": "bank",
+        "code": "BNK4",
+        "currency_id": [
+          74,
+          "EGP"
+        ],
+        "company_id": [
+          2,
+          "##Manufactre Palme##"
+        ]
+      },
+      {
+        "id": 122,
+        "name": "\u0639\u0647\u062f\u0629 \u0645\u0635\u0646\u0639",
+        "type": "cash",
+        "code": "CSH1",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 622,
+        "name": "\u062e\u0632\u064a\u0646\u0629 \u0627\u0644\u0627\u062f\u0627\u0631\u0629",
+        "type": "cash",
+        "code": "CSH=2",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 658,
+        "name": "\u0628\u0646\u0643 \u0645\u0635\u0631 1489",
+        "type": "bank",
+        "code": "BNK5",
+        "currency_id": [
+          74,
+          "EGP"
+        ],
+        "company_id": [
+          2,
+          "##Manufactre Palme##"
+        ]
+      },
+      {
+        "id": 717,
+        "name": "\u0628\u0646\u0643 \u0645\u0635\u0631 1933",
+        "type": "bank",
+        "code": "BNK6",
+        "currency_id": [
+          74,
+          "EGP"
+        ],
+        "company_id": [
+          2,
+          "##Manufactre Palme##"
+        ]
+      },
+      {
+        "id": 623,
+        "name": "\u062e\u0632\u064a\u0646\u0629 \u0627\u0644\u062a\u062c\u0645\u0639 \u0627\u0644\u0627\u0648\u0644",
+        "type": "cash",
+        "code": "CSH01",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 123,
+        "name": "\u062e\u0632\u064a\u0646\u0629 \u0645\u0635\u0646\u0639",
+        "type": "cash",
+        "code": "CSH12",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 624,
+        "name": "\u062e\u0632\u064a\u0646\u0629 \u0627\u0644\u0628\u0646\u0641\u0633\u062c",
+        "type": "cash",
+        "code": "CSH02",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 126,
+        "name": "\u0645\u0644\u0627\u0628\u0633",
+        "type": "general",
+        "code": "CLOHT",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 229,
+        "name": "Vendor Bills",
+        "type": "purchase",
+        "code": "BILL",
+        "currency_id": false,
+        "company_id": [
+          2,
+          "##Manufactre Palme##"
+        ]
+      },
+      {
+        "id": 625,
+        "name": "\u062e\u0632\u064a\u0646\u0629 \u0627\u0644\u062a\u0633\u0639\u064a\u0646",
+        "type": "cash",
+        "code": "CSH03",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 130,
+        "name": "\u0645\u064a\u0627\u0647",
+        "type": "general",
+        "code": "WAT",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 152,
+        "name": "\u0641\u064a\u0632\u0627 - \u0645\u0631\u0633\u0648\u0644 - \u0641\u0631\u0639 \u0627\u0644\u062a\u062c\u0645\u0639 \u0627\u0644\u0623\u0648\u0644",
+        "type": "bank",
+        "code": "\u0641\u064a\u0632\u0627 ",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 626,
+        "name": "\u062e\u0632\u064a\u0646\u0629 \u0633\u0641\u0646 \u0633\u062a\u0627\u0631",
+        "type": "cash",
+        "code": "CSH04",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 153,
+        "name": "\u0641\u064a\u0632\u0627 - \u0645\u0631\u0633\u0648\u0644 - \u0641\u0631\u0639 \u0627\u0644\u0628\u0646\u0641\u0633\u062c",
+        "type": "bank",
+        "code": "BNK18",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 627,
+        "name": "1 \u062e\u0632\u064a\u0646\u0629 \u0633\u0627\u0648\u062b \u0628\u0627\u0631\u0643",
+        "type": "cash",
+        "code": "CSH05",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 154,
+        "name": "\u0641\u064a\u0632\u0627 - \u0645\u0631\u0633\u0648\u0644 - \u0641\u0631\u0639 \u0627\u0644\u062a\u0633\u0639\u064a\u0646",
+        "type": "bank",
+        "code": "BNK19",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 628,
+        "name": "2 \u062e\u0632\u064a\u0646\u0629 \u0633\u0627\u0648\u062b \u0628\u0627\u0631\u0643",
+        "type": "cash",
+        "code": "CSH5",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 155,
+        "name": "\u0641\u064a\u0632\u0627 - \u0645\u0631\u0633\u0648\u0644 - \u0641\u0631\u0639 \u0627\u0644\u0645\u062d\u0643\u0645\u0647",
+        "type": "bank",
+        "code": "BNK20",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 629,
+        "name": "\u062e\u0632\u064a\u0646\u0629 \u0627\u0631\u0627\u0628\u064a\u0633\u0643",
+        "type": "cash",
+        "code": "CSH99",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 630,
+        "name": "\u0628\u0646\u0643 \u0645\u0635\u0631 655",
+        "type": "bank",
+        "code": "BNK02",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 156,
+        "name": "\u0641\u064a\u0632\u0627 - \u0645\u0631\u0633\u0648\u0644 - \u0641\u0631\u0639 south park 1",
+        "type": "bank",
+        "code": "BNK21",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 631,
+        "name": "\u0628\u0646\u0643 \u0645\u0635\u0631 199",
+        "type": "bank",
+        "code": "BNK01",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 157,
+        "name": "\u0641\u064a\u0632\u0627 - \u0645\u0631\u0633\u0648\u0644 - \u0641\u0631\u0639 south park 2",
+        "type": "bank",
+        "code": "BNK22",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 158,
+        "name": "\u0641\u064a\u0632\u0627 - \u0645\u0631\u0633\u0648\u0644 - \u0641\u0631\u0639 \u0627\u0631\u0628\u064a\u0633\u0643",
+        "type": "bank",
+        "code": "BNK23",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 159,
+        "name": "\u0641\u064a\u0632\u0627 - \u062d\u0627\u0636\u0631 - \u0641\u0631\u0639 \u0627\u0644\u062a\u062c\u0645\u0639 \u0627\u0644\u0623\u0648\u0644",
+        "type": "bank",
+        "code": "BNK24",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 634,
+        "name": "\u0628\u0646\u0643 QNB",
+        "type": "bank",
+        "code": "BNK07",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 160,
+        "name": "\u0641\u064a\u0632\u0627 - \u062d\u0627\u0636\u0631 - \u0641\u0631\u0639 \u0627\u0644\u0628\u0646\u0641\u0633\u062c",
+        "type": "bank",
+        "code": "BNK25",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 635,
+        "name": "\u0627\u0646\u0633\u062a\u0627 \u0628\u0646\u0643 \u0645\u0635\u0631",
+        "type": "bank",
+        "code": "BNK06",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 161,
+        "name": "\u0641\u064a\u0632\u0627 - \u062d\u0627\u0636\u0631 - \u0641\u0631\u0639 \u0627\u0644\u062a\u0633\u0639\u064a\u0646",
+        "type": "bank",
+        "code": "BNK26",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 636,
+        "name": "\u0628\u0646\u0643 \u0627\u0628\u0648 \u0638\u0628\u0649 \u0627\u0644\u0627\u0633\u0644\u0627\u0645\u0649",
+        "type": "bank",
+        "code": "BNK08",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      },
+      {
+        "id": 162,
+        "name": "\u0641\u064a\u0632\u0627 - \u062d\u0627\u0636\u0631 - \u0641\u0631\u0639 \u0627\u0644\u0645\u062d\u0643\u0645\u0647",
+        "type": "bank",
+        "code": "BNK27",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 101,
+        "name": "\u0628\u0646\u0643 \u0627\u0644\u0627\u0633\u0643\u0646\u062f\u0631\u064a\u0629",
+        "type": "bank",
+        "code": "BNK5",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 163,
+        "name": "\u0641\u064a\u0632\u0627 - \u062d\u0627\u0636\u0631 - \u0641\u0631\u0639 south park 1",
+        "type": "bank",
+        "code": "BNK28",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 102,
+        "name": "\u0628\u0646\u0643 QNB",
+        "type": "bank",
+        "code": "BNK6",
+        "currency_id": false,
+        "company_id": [
+          1,
+          "Palme"
+        ]
+      },
+      {
+        "id": 637,
+        "name": "\u0641\u064a\u0632\u0627 \u0641\u0631\u0639 \u0627\u0644\u062a\u062c\u0645\u0639 \u0627\u0644\u0627\u0648\u0644",
+        "type": "bank",
+        "code": "VIS01",
+        "currency_id": false,
+        "company_id": [
+          3,
+          "#\u0628\u0627\u0644\u0645\u064a\u0647#."
+        ]
+      }
+    ]
+  },
+  "data_volume": {
+    "Journal Entries (total)": 1617849,
+    "Journal Entries (posted)": 1613127,
+    "Journal Items": 4122915,
+    "Customers": 13461,
+    "Vendors": 247,
+    "Sales Orders": 16640,
+    "Purchase Orders": 21854
+  },
+  "field_schema": {
+    "account.move": {
+      "campaign_id": {
+        "type": "many2one",
+        "string": "Campaign"
+      },
+      "source_id": {
+        "type": "many2one",
+        "string": "Source"
+      },
+      "medium_id": {
+        "type": "many2one",
+        "string": "Medium"
+      },
+      "sequence_prefix": {
+        "type": "char",
+        "string": "Sequence Prefix"
+      },
+      "sequence_number": {
+        "type": "integer",
+        "string": "Sequence Number"
+      },
+      "activity_ids": {
+        "type": "one2many",
+        "string": "Activities"
+      },
+      "activity_state": {
+        "type": "selection",
+        "string": "Activity State"
+      },
+      "activity_user_id": {
+        "type": "many2one",
+        "string": "Responsible User"
+      },
+      "activity_type_id": {
+        "type": "many2one",
+        "string": "Next Activity Type"
+      },
+      "activity_type_icon": {
+        "type": "char",
+        "string": "Activity Type Icon"
+      },
+      "activity_date_deadline": {
+        "type": "date",
+        "string": "Next Activity Deadline"
+      },
+      "my_activity_date_deadline": {
+        "type": "date",
+        "string": "My Activity Deadline"
+      },
+      "activity_summary": {
+        "type": "char",
+        "string": "Next Activity Summary"
+      },
+      "activity_exception_decoration": {
+        "type": "selection",
+        "string": "Activity Exception Decoration"
+      },
+      "activity_exception_icon": {
+        "type": "char",
+        "string": "Icon"
+      },
+      "activity_calendar_event_id": {
+        "type": "many2one",
+        "string": "Next Activity Calendar Event"
+      },
+      "access_url": {
+        "type": "char",
+        "string": "Portal Access URL"
+      },
+      "access_token": {
+        "type": "char",
+        "string": "Security Token"
+      },
+      "access_warning": {
+        "type": "text",
+        "string": "Access warning"
+      },
+      "message_is_follower": {
+        "type": "boolean",
+        "string": "Is Follower"
+      },
+      "message_follower_ids": {
+        "type": "one2many",
+        "string": "Followers"
+      },
+      "message_partner_ids": {
+        "type": "many2many",
+        "string": "Followers (Partners)"
+      },
+      "message_ids": {
+        "type": "one2many",
+        "string": "Messages"
+      },
+      "has_message": {
+        "type": "boolean",
+        "string": "Has Message"
+      },
+      "message_needaction": {
+        "type": "boolean",
+        "string": "Action Needed"
+      },
+      "message_needaction_counter": {
+        "type": "integer",
+        "string": "Number of Actions"
+      },
+      "message_has_error": {
+        "type": "boolean",
+        "string": "Message Delivery error"
+      },
+      "message_has_error_counter": {
+        "type": "integer",
+        "string": "Number of errors"
+      },
+      "message_attachment_count": {
+        "type": "integer",
+        "string": "Attachment Count"
+      },
+      "rating_ids": {
+        "type": "one2many",
+        "string": "Ratings"
+      },
+      "website_message_ids": {
+        "type": "one2many",
+        "string": "Website Messages"
+      },
+      "message_has_sms_error": {
+        "type": "boolean",
+        "string": "SMS Delivery error"
+      },
+      "message_main_attachment_id": {
+        "type": "many2one",
+        "string": "Main Attachment"
+      },
+      "name": {
+        "type": "char",
+        "string": "Number"
+      },
+      "ref": {
+        "type": "char",
+        "string": "Reference"
+      },
+      "date": {
+        "type": "date",
+        "string": "Date"
+      },
+      "state": {
+        "type": "selection",
+        "string": "Status"
+      },
+      "move_type": {
+        "type": "selection",
+        "string": "Type"
+      },
+      "is_storno": {
+        "type": "boolean",
+        "string": "Is Storno"
+      },
+      "journal_id": {
+        "type": "many2one",
+        "string": "Journal"
+      },
+      "company_id": {
+        "type": "many2one",
+        "string": "Company"
+      },
+      "line_ids": {
+        "type": "one2many",
+        "string": "Journal Items"
+      },
+      "payment_id": {
+        "type": "many2one",
+        "string": "Payment"
+      },
+      "statement_line_id": {
+        "type": "many2one",
+        "string": "Statement Line"
+      },
+      "statement_id": {
+        "type": "many2one",
+        "string": "Statement"
+      },
+      "tax_cash_basis_rec_id": {
+        "type": "many2one",
+        "string": "Tax Cash Basis Entry of"
+      },
+      "tax_cash_basis_origin_move_id": {
+        "type": "many2one",
+        "string": "Cash Basis Origin"
+      },
+      "tax_cash_basis_created_move_ids": {
+        "type": "one2many",
+        "string": "Cash Basis Entries"
+      },
+      "always_tax_exigible": {
+        "type": "boolean",
+        "string": "Always Tax Exigible"
+      },
+      "auto_post": {
+        "type": "selection",
+        "string": "Auto-post"
+      },
+      "auto_post_until": {
+        "type": "date",
+        "string": "Auto-post until"
+      },
+      "auto_post_origin_id": {
+        "type": "many2one",
+        "string": "First recurring entry"
+      },
+      "hide_post_button": {
+        "type": "boolean",
+        "string": "Hide Post Button"
+      },
+      "to_check": {
+        "type": "boolean",
+        "string": "To Check"
+      },
+      "posted_before": {
+        "type": "boolean",
+        "string": "Posted Before"
+      },
+      "suitable_journal_ids": {
+        "type": "many2many",
+        "string": "Suitable Journal"
+      },
+      "highest_name": {
+        "type": "char",
+        "string": "Highest Name"
+      },
+      "made_sequence_hole": {
+        "type": "boolean",
+        "string": "Made Sequence Hole"
+      },
+      "show_name_warning": {
+        "type": "boolean",
+        "string": "Show Name Warning"
+      },
+      "type_name": {
+        "type": "char",
+        "string": "Type Name"
+      },
+      "country_code": {
+        "type": "char",
+        "string": "Country Code"
+      },
+      "attachment_ids": {
+        "type": "one2many",
+        "string": "Attachments"
+      },
+      "restrict_mode_hash_table": {
+        "type": "boolean",
+        "string": "Lock Posted Entries with Hash"
+      },
+      "secure_sequence_number": {
+        "type": "integer",
+        "string": "Inalteralbility No Gap Sequence #"
+      },
+      "inalterable_hash": {
+        "type": "char",
+        "string": "Inalterability Hash"
+      },
+      "string_to_hash": {
+        "type": "char",
+        "string": "String To Hash"
+      },
+      "invoice_line_ids": {
+        "type": "one2many",
+        "string": "Invoice lines"
+      },
+      "invoice_date": {
+        "type": "date",
+        "string": "Invoice/Bill Date"
+      },
+      "invoice_date_due": {
+        "type": "date",
+        "string": "Due Date"
+      },
+      "delivery_date": {
+        "type": "date",
+        "string": "Delivery Date"
+      },
+      "show_delivery_date": {
+        "type": "boolean",
+        "string": "Show Delivery Date"
+      },
+      "invoice_payment_term_id": {
+        "type": "many2one",
+        "string": "Payment Terms"
+      },
+      "needed_terms": {
+        "type": "binary",
+        "string": "Needed Terms"
+      },
+      "needed_terms_dirty": {
+        "type": "boolean",
+        "string": "Needed Terms Dirty"
+      },
+      "tax_calculation_rounding_method": {
+        "type": "selection",
+        "string": "Tax calculation rounding method"
+      },
+      "partner_id": {
+        "type": "many2one",
+        "string": "Partner"
+      },
+      "commercial_partner_id": {
+        "type": "many2one",
+        "string": "Commercial Entity"
+      },
+      "partner_shipping_id": {
+        "type": "many2one",
+        "string": "Delivery Address"
+      },
+      "partner_bank_id": {
+        "type": "many2one",
+        "string": "Recipient Bank"
+      },
+      "fiscal_position_id": {
+        "type": "many2one",
+        "string": "Fiscal Position"
+      },
+      "payment_reference": {
+        "type": "char",
+        "string": "Payment Reference"
+      },
+      "display_qr_code": {
+        "type": "boolean",
+        "string": "Display QR-code"
+      },
+      "qr_code_method": {
+        "type": "selection",
+        "string": "Payment QR-code"
+      },
+      "invoice_outstanding_credits_debits_widget": {
+        "type": "binary",
+        "string": "Invoice Outstanding Credits Debits Widget"
+      },
+      "invoice_has_outstanding": {
+        "type": "boolean",
+        "string": "Invoice Has Outstanding"
+      },
+      "invoice_payments_widget": {
+        "type": "binary",
+        "string": "Invoice Payments Widget"
+      },
+      "company_currency_id": {
+        "type": "many2one",
+        "string": "Company Currency"
+      },
+      "currency_id": {
+        "type": "many2one",
+        "string": "Currency"
+      },
+      "direction_sign": {
+        "type": "integer",
+        "string": "Direction Sign"
+      },
+      "amount_untaxed": {
+        "type": "monetary",
+        "string": "Untaxed Amount"
+      },
+      "amount_tax": {
+        "type": "monetary",
+        "string": "Tax"
+      },
+      "amount_total": {
+        "type": "monetary",
+        "string": "Total"
+      },
+      "amount_residual": {
+        "type": "monetary",
+        "string": "Amount Due"
+      },
+      "amount_untaxed_signed": {
+        "type": "monetary",
+        "string": "Untaxed Amount Signed"
+      },
+      "amount_tax_signed": {
+        "type": "monetary",
+        "string": "Tax Signed"
+      },
+      "amount_total_signed": {
+        "type": "monetary",
+        "string": "Total Signed"
+      },
+      "amount_total_in_currency_signed": {
+        "type": "monetary",
+        "string": "Total in Currency Signed"
+      },
+      "amount_residual_signed": {
+        "type": "monetary",
+        "string": "Amount Due Signed"
+      },
+      "tax_totals": {
+        "type": "binary",
+        "string": "Invoice Totals"
+      },
+      "payment_state": {
+        "type": "selection",
+        "string": "Payment Status"
+      },
+      "amount_total_words": {
+        "type": "char",
+        "string": "Amount total in words"
+      },
+      "reversed_entry_id": {
+        "type": "many2one",
+        "string": "Reversal of"
+      },
+      "reversal_move_id": {
+        "type": "one2many",
+        "string": "Reversal Move"
+      },
+      "invoice_vendor_bill_id": {
+        "type": "many2one",
+        "string": "Vendor Bill"
+      },
+      "invoice_source_email": {
+        "type": "char",
+        "string": "Source Email"
+      },
+      "invoice_partner_display_name": {
+        "type": "char",
+        "string": "Invoice Partner Display Name"
+      },
+      "quick_edit_mode": {
+        "type": "boolean",
+        "string": "Quick Edit Mode"
+      },
+      "quick_edit_total_amount": {
+        "type": "monetary",
+        "string": "Total (Tax inc.)"
+      },
+      "quick_encoding_vals": {
+        "type": "json",
+        "string": "Quick Encoding Vals"
+      },
+      "narration": {
+        "type": "html",
+        "string": "Terms and Conditions"
+      },
+      "is_move_sent": {
+        "type": "boolean",
+        "string": "Is Move Sent"
+      },
+      "is_being_sent": {
+        "type": "boolean",
+        "string": "Is Being Sent"
+      },
+      "invoice_user_id": {
+        "type": "many2one",
+        "string": "Salesperson"
+      },
+      "user_id": {
+        "type": "many2one",
+        "string": "User"
+      },
+      "invoice_origin": {
+        "type": "char",
+        "string": "Origin"
+      },
+      "invoice_incoterm_id": {
+        "type": "many2one",
+        "string": "Incoterm"
+      },
+      "incoterm_location": {
+        "type": "char",
+        "string": "Incoterm Location"
+      },
+      "invoice_cash_rounding_id": {
+        "type": "many2one",
+        "string": "Cash Rounding Method"
+      },
+      "send_and_print_values": {
+        "type": "json",
+        "string": "Send And Print Values"
+      },
+      "invoice_pdf_report_id": {
+        "type": "many2one",
+        "string": "PDF Attachment"
+      },
+      "invoice_pdf_report_file": {
+        "type": "binary",
+        "string": "PDF File"
+      },
+      "invoice_filter_type_domain": {
+        "type": "char",
+        "string": "Invoice Filter Type Domain"
+      },
+      "bank_partner_id": {
+        "type": "many2one",
+        "string": "Bank Partner"
+      },
+      "tax_lock_date_message": {
+        "type": "char",
+        "string": "Tax Lock Date Message"
+      },
+      "display_inactive_currency_warning": {
+        "type": "boolean",
+        "string": "Display Inactive Currency Warning"
+      },
+      "tax_country_id": {
+        "type": "many2one",
+        "string": "Tax Country"
+      },
+      "tax_country_code": {
+        "type": "char",
+        "string": "Tax Country Code"
+      },
+      "has_reconciled_entries": {
+        "type": "boolean",
+        "string": "Has Reconciled Entries"
+      },
+      "show_reset_to_draft_button": {
+        "type": "boolean",
+        "string": "Show Reset To Draft Button"
+      },
+      "partner_credit_warning": {
+        "type": "text",
+        "string": "Partner Credit Warning"
+      },
+      "partner_credit": {
+        "type": "monetary",
+        "string": "Partner Credit"
+      },
+      "duplicated_ref_ids": {
+        "type": "many2many",
+        "string": "Duplicated Ref"
+      },
+      "need_cancel_request": {
+        "type": "boolean",
+        "string": "Need Cancel Request"
+      },
+      "show_update_fpos": {
+        "type": "boolean",
+        "string": "Has Fiscal Position Changed"
+      },
+      "payment_term_details": {
+        "type": "binary",
+        "string": "Payment Term Details"
+      },
+      "show_payment_term_details": {
+        "type": "boolean",
+        "string": "Show Payment Term Details"
+      },
+      "show_discount_details": {
+        "type": "boolean",
+        "string": "Show Discount Details"
+      },
+      "id": {
+        "type": "integer",
+        "string": "ID"
+      },
+      "display_name": {
+        "type": "char",
+        "string": "Display Name"
+      },
+      "create_uid": {
+        "type": "many2one",
+        "string": "Created by"
+      },
+      "create_date": {
+        "type": "datetime",
+        "string": "Created on"
+      },
+      "write_uid": {
+        "type": "many2one",
+        "string": "Last Updated by"
+      },
+      "write_date": {
+        "type": "datetime",
+        "string": "Last Updated on"
+      },
+      "payment_ids": {
+        "type": "one2many",
+        "string": "Payments"
+      },
+      "statement_line_ids": {
+        "type": "one2many",
+        "string": "Statements"
+      },
+      "payment_state_before_switch": {
+        "type": "char",
+        "string": "Payment State Before Switch"
+      },
+      "deferred_move_ids": {
+        "type": "many2many",
+        "string": "Deferred Entries"
+      },
+      "deferred_original_move_ids": {
+        "type": "many2many",
+        "string": "Original Invoices"
+      },
+      "deferred_entry_type": {
+        "type": "selection",
+        "string": "Deferred Entry Type"
+      },
+      "ubl_cii_xml_id": {
+        "type": "many2one",
+        "string": "Attachment"
+      },
+      "ubl_cii_xml_file": {
+        "type": "binary",
+        "string": "UBL/CII File"
+      },
+      "auto_generated": {
+        "type": "boolean",
+        "string": "Auto Generated Document"
+      },
+      "auto_invoice_id": {
+        "type": "many2one",
+        "string": "Source Invoice"
+      },
+      "extract_state": {
+        "type": "selection",
+        "string": "Extract state"
+      },
+      "extract_status": {
+        "type": "char",
+        "string": "Extract status"
+      },
+      "extract_error_message": {
+        "type": "text",
+        "string": "Error message"
+      },
+      "extract_document_uuid": {
+        "type": "char",
+        "string": "ID of the request to IAP-OCR"
+      },
+      "extract_can_show_send_button": {
+        "type": "boolean",
+        "string": "Can show the ocr send button"
+      },
+      "is_in_extractable_state": {
+        "type": "boolean",
+        "string": "Is In Extractable State"
+      },
+      "extract_state_processed": {
+        "type": "boolean",
+        "string": "Extract State Processed"
+      },
+      "extract_word_ids": {
+        "type": "one2many",
+        "string": "Extract Word"
+      },
+      "extract_attachment_id": {
+        "type": "many2one",
+        "string": "Extract Attachment"
+      },
+      "extract_can_show_banners": {
+        "type": "boolean",
+        "string": "Can show the ocr banners"
+      },
+      "extract_detected_layout": {
+        "type": "integer",
+        "string": "Extract Detected Layout Id"
+      },
+      "extract_partner_name": {
+        "type": "char",
+        "string": "Extract Detected Partner Name"
+      },
+      "transaction_ids": {
+        "type": "many2many",
+        "string": "Transactions"
+      },
+      "authorized_transaction_ids": {
+        "type": "many2many",
+        "string": "Authorized Transactions"
+      },
+      "amount_paid": {
+        "type": "monetary",
+        "string": "Amount paid"
+      },
+      "purchase_vendor_bill_id": {
+        "type": "many2one",
+        "string": "Auto-complete"
+      },
+      "purchase_id": {
+        "type": "many2one",
+        "string": "Purchase Order"
+      },
+      "purchase_order_count": {
+        "type": "integer",
+        "string": "Purchase Order Count"
+      },
+      "stock_move_id": {
+        "type": "many2one",
+        "string": "Stock Move"
+      },
+      "stock_valuation_layer_ids": {
+        "type": "one2many",
+        "string": "Stock Valuation Layer"
+      },
+      "release_to_pay": {
+        "type": "selection",
+        "string": "Release To Pay"
+      },
+      "release_to_pay_manual": {
+        "type": "selection",
+        "string": "Should Be Paid"
+      },
+      "force_release_to_pay": {
+        "type": "boolean",
+        "string": "Force Status"
+      },
+      "transfer_model_id": {
+        "type": "many2one",
+        "string": "Originating Model"
+      },
+      "tax_closing_end_date": {
+        "type": "date",
+        "string": "Tax Closing End Date"
+      },
+      "tax_report_control_error": {
+        "type": "boolean",
+        "string": "Tax Report Control Error"
+      },
+      "tax_closing_alert": {
+        "type": "boolean",
+        "string": "Tax Closing Alert"
+      },
+      "tax_closing_show_multi_closing_warning": {
+        "type": "boolean",
+        "string": "Tax Closing Show Multi Closing Warning"
+      },
+      "calendar_booking_ids": {
+        "type": "one2many",
+        "string": "Meeting Booking"
+      },
+      "pos_order_ids": {
+        "type": "one2many",
+        "string": "Pos Order"
+      },
+      "pos_payment_ids": {
+        "type": "one2many",
+        "string": "Pos Payment"
+      },
+      "pos_refunded_invoice_ids": {
+        "type": "many2many",
+        "string": "Pos Refunded Invoice"
+      },
+      "team_id": {
+        "type": "many2one",
+        "string": "Sales Team"
+      },
+      "sale_order_count": {
+        "type": "integer",
+        "string": "Sale Order Count"
+      },
+      "asset_id": {
+        "type": "many2one",
+        "string": "Asset"
+      },
+      "asset_remaining_value": {
+        "type": "monetary",
+        "string": "Depreciable Value"
+      },
+      "asset_depreciated_value": {
+        "type": "monetary",
+        "string": "Cumulative Depreciation"
+      },
+      "asset_value_change": {
+        "type": "boolean",
+        "string": "Asset Value Change"
+      },
+      "asset_number_days": {
+        "type": "integer",
+        "string": "Number of days"
+      },
+      "asset_depreciation_beginning_date": {
+        "type": "date",
+        "string": "Date of the beginning of the depreciation"
+      },
+      "depreciation_value": {
+        "type": "monetary",
+        "string": "Depreciation"
+      },
+      "asset_ids": {
+        "type": "one2many",
+        "string": "Assets"
+      },
+      "asset_id_display_name": {
+        "type": "char",
+        "string": "Asset Id Display Name"
+      },
+      "count_asset": {
+        "type": "integer",
+        "string": "Count Asset"
+      },
+      "draft_asset_exists": {
+        "type": "boolean",
+        "string": "Draft Asset Exists"
+      },
+      "sequence": {
+        "type": "char",
+        "string": "Sequence Number  "
+      },
+      "remarks_for_purchase": {
+        "type": "text",
+        "string": "Remarks for Purchase"
+      },
+      "is_remarks_for_purchase": {
+        "type": "boolean",
+        "string": "Is Remarks for Purchase"
+      },
+      "remarks_for_sale": {
+        "type": "text",
+        "string": "Remarks for Sale"
+      },
+      "is_remarks_for_sale": {
+        "type": "boolean",
+        "string": "Is Remarks for Sale"
+      },
+      "remarks": {
+        "type": "text",
+        "string": "Remarks"
+      },
+      "is_remarks": {
+        "type": "boolean",
+        "string": "Enable Remark for Invoice"
+      },
+      "is_remarks_mandatory": {
+        "type": "boolean",
+        "string": "Remark Mandatory for Invoice"
+      },
+      "is_boolean": {
+        "type": "boolean",
+        "string": "Is Boolean"
+      },
+      "website_id": {
+        "type": "many2one",
+        "string": "Website"
+      },
+      "timesheet_ids": {
+        "type": "one2many",
+        "string": "Timesheets"
+      },
+      "timesheet_count": {
+        "type": "integer",
+        "string": "Number of timesheets"
+      },
+      "timesheet_encode_uom_id": {
+        "type": "many2one",
+        "string": "Timesheet Encoding Unit"
+      },
+      "timesheet_total_duration": {
+        "type": "integer",
+        "string": "Timesheet Total Duration"
+      },
+      "x_studio_many2one_field_2t8_1if82gtsr": {
+        "type": "many2one",
+        "string": "New Many2One"
+      },
+      "x_studio_delivery_address": {
+        "type": "many2one",
+        "string": "Delivery Address"
+      },
+      "x_studio_related_field_698_1jgsf99up": {
+        "type": "many2one",
+        "string": "New Related Field"
+      },
+      "x_studio_related_field_2qk_1jgsfb2b1": {
+        "type": "many2one",
+        "string": "New Related Field"
+      },
+      "x_studio_many2one_field_6jm_1jgsfhoo8": {
+        "type": "many2one",
+        "string": "New Many2One"
+      }
+    },
+    "account.move.line": {
+      "analytic_distribution": {
+        "type": "json",
+        "string": "Analytic Distribution"
+      },
+      "analytic_distribution_search": {
+        "type": "json",
+        "string": "Analytic Distribution Search"
+      },
+      "analytic_precision": {
+        "type": "integer",
+        "string": "Analytic Precision"
+      },
+      "distribution_analytic_account_ids": {
+        "type": "many2many",
+        "string": "Distribution Analytic Account"
+      },
+      "move_id": {
+        "type": "many2one",
+        "string": "Journal Entry"
+      },
+      "journal_id": {
+        "type": "many2one",
+        "string": "Journal"
+      },
+      "company_id": {
+        "type": "many2one",
+        "string": "Company"
+      },
+      "company_currency_id": {
+        "type": "many2one",
+        "string": "Company Currency"
+      },
+      "move_name": {
+        "type": "char",
+        "string": "Number"
+      },
+      "parent_state": {
+        "type": "selection",
+        "string": "Status"
+      },
+      "date": {
+        "type": "date",
+        "string": "Date"
+      },
+      "invoice_date": {
+        "type": "date",
+        "string": "Invoice/Bill Date"
+      },
+      "ref": {
+        "type": "char",
+        "string": "Reference"
+      },
+      "is_storno": {
+        "type": "boolean",
+        "string": "Company Storno Accounting"
+      },
+      "sequence": {
+        "type": "integer",
+        "string": "Sequence"
+      },
+      "move_type": {
+        "type": "selection",
+        "string": "Type"
+      },
+      "account_id": {
+        "type": "many2one",
+        "string": "Account"
+      },
+      "name": {
+        "type": "char",
+        "string": "Label"
+      },
+      "debit": {
+        "type": "monetary",
+        "string": "Debit"
+      },
+      "credit": {
+        "type": "monetary",
+        "string": "Credit"
+      },
+      "balance": {
+        "type": "monetary",
+        "string": "Balance"
+      },
+      "cumulated_balance": {
+        "type": "monetary",
+        "string": "Cumulated Balance"
+      },
+      "currency_rate": {
+        "type": "float",
+        "string": "Currency Rate"
+      },
+      "amount_currency": {
+        "type": "monetary",
+        "string": "Amount in Currency"
+      },
+      "currency_id": {
+        "type": "many2one",
+        "string": "Currency"
+      },
+      "is_same_currency": {
+        "type": "boolean",
+        "string": "Is Same Currency"
+      },
+      "partner_id": {
+        "type": "many2one",
+        "string": "Partner"
+      },
+      "reconcile_model_id": {
+        "type": "many2one",
+        "string": "Reconciliation Model"
+      },
+      "payment_id": {
+        "type": "many2one",
+        "string": "Originator Payment"
+      },
+      "statement_line_id": {
+        "type": "many2one",
+        "string": "Originator Statement Line"
+      },
+      "statement_id": {
+        "type": "many2one",
+        "string": "Statement"
+      },
+      "tax_ids": {
+        "type": "many2many",
+        "string": "Taxes"
+      },
+      "group_tax_id": {
+        "type": "many2one",
+        "string": "Originator Group of Taxes"
+      },
+      "tax_line_id": {
+        "type": "many2one",
+        "string": "Originator Tax"
+      },
+      "tax_group_id": {
+        "type": "many2one",
+        "string": "Originator tax group"
+      },
+      "tax_base_amount": {
+        "type": "monetary",
+        "string": "Base Amount"
+      },
+      "tax_repartition_line_id": {
+        "type": "many2one",
+        "string": "Originator Tax Distribution Line"
+      },
+      "tax_tag_ids": {
+        "type": "many2many",
+        "string": "Tags"
+      },
+      "tax_tag_invert": {
+        "type": "boolean",
+        "string": "Invert Tags"
+      },
+      "amount_residual": {
+        "type": "monetary",
+        "string": "Residual Amount"
+      },
+      "amount_residual_currency": {
+        "type": "monetary",
+        "string": "Residual Amount in Currency"
+      },
+      "reconciled": {
+        "type": "boolean",
+        "string": "Reconciled"
+      },
+      "full_reconcile_id": {
+        "type": "many2one",
+        "string": "Matching"
+      },
+      "matched_debit_ids": {
+        "type": "one2many",
+        "string": "Matched Debits"
+      },
+      "matched_credit_ids": {
+        "type": "one2many",
+        "string": "Matched Credits"
+      },
+      "matching_number": {
+        "type": "char",
+        "string": "Matching #"
+      },
+      "is_account_reconcile": {
+        "type": "boolean",
+        "string": "Account Reconcile"
+      },
+      "account_type": {
+        "type": "selection",
+        "string": "Internal Type"
+      },
+      "account_internal_group": {
+        "type": "selection",
+        "string": "Internal Group"
+      },
+      "account_root_id": {
+        "type": "many2one",
+        "string": "Account Root"
+      },
+      "display_type": {
+        "type": "selection",
+        "string": "Display Type"
+      },
+      "product_id": {
+        "type": "many2one",
+        "string": "Product"
+      },
+      "product_uom_id": {
+        "type": "many2one",
+        "string": "Unit of Measure"
+      },
+      "product_uom_category_id": {
+        "type": "many2one",
+        "string": "Category"
+      },
+      "quantity": {
+        "type": "float",
+        "string": "Quantity"
+      },
+      "date_maturity": {
+        "type": "date",
+        "string": "Due Date"
+      },
+      "price_unit": {
+        "type": "float",
+        "string": "Unit Price"
+      },
+      "price_subtotal": {
+        "type": "monetary",
+        "string": "Subtotal"
+      },
+      "price_total": {
+        "type": "monetary",
+        "string": "Total"
+      },
+      "discount": {
+        "type": "float",
+        "string": "Discount (%)"
+      },
+      "tax_calculation_rounding_method": {
+        "type": "selection",
+        "string": "Tax calculation rounding method"
+      },
+      "term_key": {
+        "type": "binary",
+        "string": "Term Key"
+      },
+      "tax_key": {
+        "type": "binary",
+        "string": "Tax Key"
+      },
+      "compute_all_tax": {
+        "type": "binary",
+        "string": "Compute All Tax"
+      },
+      "compute_all_tax_dirty": {
+        "type": "boolean",
+        "string": "Compute All Tax Dirty"
+      },
+      "epd_key": {
+        "type": "binary",
+        "string": "Epd Key"
+      },
+      "epd_needed": {
+        "type": "binary",
+        "string": "Epd Needed"
+      },
+      "epd_dirty": {
+        "type": "boolean",
+        "string": "Epd Dirty"
+      },
+      "discount_allocation_key": {
+        "type": "binary",
+        "string": "Discount Allocation Key"
+      },
+      "discount_allocation_needed": {
+        "type": "binary",
+        "string": "Discount Allocation Needed"
+      },
+      "discount_allocation_dirty": {
+        "type": "boolean",
+        "string": "Discount Allocation Dirty"
+      },
+      "analytic_line_ids": {
+        "type": "one2many",
+        "string": "Analytic lines"
+      },
+      "discount_date": {
+        "type": "date",
+        "string": "Discount Date"
+      },
+      "discount_amount_currency": {
+        "type": "monetary",
+        "string": "Discount amount in Currency"
+      },
+      "discount_balance": {
+        "type": "monetary",
+        "string": "Discount Balance"
+      },
+      "payment_date": {
+        "type": "date",
+        "string": "Payment Date"
+      },
+      "blocked": {
+        "type": "boolean",
+        "string": "No Follow-up"
+      },
+      "is_refund": {
+        "type": "boolean",
+        "string": "Is Refund"
+      },
+      "id": {
+        "type": "integer",
+        "string": "ID"
+      },
+      "display_name": {
+        "type": "char",
+        "string": "Display Name"
+      },
+      "create_uid": {
+        "type": "many2one",
+        "string": "Created by"
+      },
+      "create_date": {
+        "type": "datetime",
+        "string": "Created on"
+      },
+      "write_uid": {
+        "type": "many2one",
+        "string": "Last Updated by"
+      },
+      "write_date": {
+        "type": "datetime",
+        "string": "Last Updated on"
+      },
+      "move_attachment_ids": {
+        "type": "one2many",
+        "string": "Move Attachment"
+      },
+      "deferred_start_date": {
+        "type": "date",
+        "string": "Start Date"
+      },
+      "deferred_end_date": {
+        "type": "date",
+        "string": "End Date"
+      },
+      "has_deferred_moves": {
+        "type": "boolean",
+        "string": "Has Deferred Moves"
+      },
+      "has_abnormal_deferred_dates": {
+        "type": "boolean",
+        "string": "Has Abnormal Deferred Dates"
+      },
+      "purchase_line_id": {
+        "type": "many2one",
+        "string": "Purchase Order Line"
+      },
+      "purchase_order_id": {
+        "type": "many2one",
+        "string": "Purchase Order"
+      },
+      "stock_valuation_layer_ids": {
+        "type": "one2many",
+        "string": "Stock Valuation Layer"
+      },
+      "cogs_origin_id": {
+        "type": "many2one",
+        "string": "Cogs Origin"
+      },
+      "can_be_paid": {
+        "type": "selection",
+        "string": "Release to Pay"
+      },
+      "expected_pay_date": {
+        "type": "date",
+        "string": "Expected Date"
+      },
+      "is_downpayment": {
+        "type": "boolean",
+        "string": "Is Downpayment"
+      },
+      "sale_line_ids": {
+        "type": "many2many",
+        "string": "Sales Order Lines"
+      },
+      "asset_ids": {
+        "type": "many2many",
+        "string": "Related Assets"
+      },
+      "non_deductible_tax_value": {
+        "type": "monetary",
+        "string": "Non Deductible Tax Value"
+      },
+      "followup_line_id": {
+        "type": "many2one",
+        "string": "Follow-up Level"
+      },
+      "last_followup_date": {
+        "type": "date",
+        "string": "Latest Follow-up"
+      },
+      "next_action_date": {
+        "type": "date",
+        "string": "Next Action Date"
+      },
+      "invoice_origin": {
+        "type": "char",
+        "string": "Origin"
+      },
+      "invoice_sequence_number": {
+        "type": "char",
+        "string": "No.  "
+      },
+      "remarks": {
+        "type": "text",
+        "string": "Remarks"
+      },
+      "x_studio_tags": {
+        "type": "many2many",
+        "string": "Tags"
+      }
+    },
+    "account.account": {
+      "message_is_follower": {
+        "type": "boolean",
+        "string": "Is Follower"
+      },
+      "message_follower_ids": {
+        "type": "one2many",
+        "string": "Followers"
+      },
+      "message_partner_ids": {
+        "type": "many2many",
+        "string": "Followers (Partners)"
+      },
+      "message_ids": {
+        "type": "one2many",
+        "string": "Messages"
+      },
+      "has_message": {
+        "type": "boolean",
+        "string": "Has Message"
+      },
+      "message_needaction": {
+        "type": "boolean",
+        "string": "Action Needed"
+      },
+      "message_needaction_counter": {
+        "type": "integer",
+        "string": "Number of Actions"
+      },
+      "message_has_error": {
+        "type": "boolean",
+        "string": "Message Delivery error"
+      },
+      "message_has_error_counter": {
+        "type": "integer",
+        "string": "Number of errors"
+      },
+      "message_attachment_count": {
+        "type": "integer",
+        "string": "Attachment Count"
+      },
+      "rating_ids": {
+        "type": "one2many",
+        "string": "Ratings"
+      },
+      "website_message_ids": {
+        "type": "one2many",
+        "string": "Website Messages"
+      },
+      "message_has_sms_error": {
+        "type": "boolean",
+        "string": "SMS Delivery error"
+      },
+      "name": {
+        "type": "char",
+        "string": "Account Name"
+      },
+      "currency_id": {
+        "type": "many2one",
+        "string": "Account Currency"
+      },
+      "company_currency_id": {
+        "type": "many2one",
+        "string": "Currency"
+      },
+      "code": {
+        "type": "char",
+        "string": "Code"
+      },
+      "deprecated": {
+        "type": "boolean",
+        "string": "Deprecated"
+      },
+      "used": {
+        "type": "boolean",
+        "string": "Used"
+      },
+      "account_type": {
+        "type": "selection",
+        "string": "Type"
+      },
+      "include_initial_balance": {
+        "type": "boolean",
+        "string": "Bring Accounts Balance Forward"
+      },
+      "internal_group": {
+        "type": "selection",
+        "string": "Internal Group"
+      },
+      "reconcile": {
+        "type": "boolean",
+        "string": "Allow Reconciliation"
+      },
+      "tax_ids": {
+        "type": "many2many",
+        "string": "Default Taxes"
+      },
+      "note": {
+        "type": "text",
+        "string": "Internal Notes"
+      },
+      "company_id": {
+        "type": "many2one",
+        "string": "Company"
+      },
+      "tag_ids": {
+        "type": "many2many",
+        "string": "Tags"
+      },
+      "group_id": {
+        "type": "many2one",
+        "string": "Group"
+      },
+      "root_id": {
+        "type": "many2one",
+        "string": "Root"
+      },
+      "allowed_journal_ids": {
+        "type": "many2many",
+        "string": "Allowed Journals"
+      },
+      "opening_debit": {
+        "type": "monetary",
+        "string": "Opening Debit"
+      },
+      "opening_credit": {
+        "type": "monetary",
+        "string": "Opening Credit"
+      },
+      "opening_balance": {
+        "type": "monetary",
+        "string": "Opening Balance"
+      },
+      "current_balance": {
+        "type": "float",
+        "string": "Current Balance"
+      },
+      "related_taxes_amount": {
+        "type": "integer",
+        "string": "Related Taxes Amount"
+      },
+      "non_trade": {
+        "type": "boolean",
+        "string": "Non Trade"
+      },
+      "id": {
+        "type": "integer",
+        "string": "ID"
+      },
+      "display_name": {
+        "type": "char",
+        "string": "Display Name"
+      },
+      "create_uid": {
+        "type": "many2one",
+        "string": "Created by"
+      },
+      "create_date": {
+        "type": "datetime",
+        "string": "Created on"
+      },
+      "write_uid": {
+        "type": "many2one",
+        "string": "Last Updated by"
+      },
+      "write_date": {
+        "type": "datetime",
+        "string": "Last Updated on"
+      },
+      "exclude_provision_currency_ids": {
+        "type": "many2many",
+        "string": "Exclude Provision Currency"
+      },
+      "asset_model": {
+        "type": "many2one",
+        "string": "Asset Model"
+      },
+      "create_asset": {
+        "type": "selection",
+        "string": "Create Asset"
+      },
+      "can_create_asset": {
+        "type": "boolean",
+        "string": "Can Create Asset"
+      },
+      "form_view_ref": {
+        "type": "char",
+        "string": "Form View Ref"
+      },
+      "multiple_assets_per_line": {
+        "type": "boolean",
+        "string": "Multiple Assets per Line"
+      },
+      "disallowed_expenses_category_id": {
+        "type": "many2one",
+        "string": "Disallowed Expenses Category"
+      }
+    },
+    "res.partner": {
+      "is_seo_optimized": {
+        "type": "boolean",
+        "string": "SEO optimized"
+      },
+      "website_meta_title": {
+        "type": "char",
+        "string": "Website meta title"
+      },
+      "website_meta_description": {
+        "type": "text",
+        "string": "Website meta description"
+      },
+      "website_meta_keywords": {
+        "type": "char",
+        "string": "Website meta keywords"
+      },
+      "website_meta_og_img": {
+        "type": "char",
+        "string": "Website opengraph image"
+      },
+      "seo_name": {
+        "type": "char",
+        "string": "Seo name"
+      },
+      "website_id": {
+        "type": "many2one",
+        "string": "Website"
+      },
+      "website_published": {
+        "type": "boolean",
+        "string": "Visible on current website"
+      },
+      "is_published": {
+        "type": "boolean",
+        "string": "Is Published"
+      },
+      "can_publish": {
+        "type": "boolean",
+        "string": "Can Publish"
+      },
+      "website_url": {
+        "type": "char",
+        "string": "Website URL"
+      },
+      "message_is_follower": {
+        "type": "boolean",
+        "string": "Is Follower"
+      },
+      "message_follower_ids": {
+        "type": "one2many",
+        "string": "Followers"
+      },
+      "message_partner_ids": {
+        "type": "many2many",
+        "string": "Followers (Partners)"
+      },
+      "message_ids": {
+        "type": "one2many",
+        "string": "Messages"
+      },
+      "has_message": {
+        "type": "boolean",
+        "string": "Has Message"
+      },
+      "message_needaction": {
+        "type": "boolean",
+        "string": "Action Needed"
+      },
+      "message_needaction_counter": {
+        "type": "integer",
+        "string": "Number of Actions"
+      },
+      "message_has_error": {
+        "type": "boolean",
+        "string": "Message Delivery error"
+      },
+      "message_has_error_counter": {
+        "type": "integer",
+        "string": "Number of errors"
+      },
+      "message_attachment_count": {
+        "type": "integer",
+        "string": "Attachment Count"
+      },
+      "rating_ids": {
+        "type": "one2many",
+        "string": "Ratings"
+      },
+      "website_message_ids": {
+        "type": "one2many",
+        "string": "Website Messages"
+      },
+      "message_has_sms_error": {
+        "type": "boolean",
+        "string": "SMS Delivery error"
+      },
+      "email_normalized": {
+        "type": "char",
+        "string": "Normalized Email"
+      },
+      "is_blacklisted": {
+        "type": "boolean",
+        "string": "Blacklist"
+      },
+      "message_bounce": {
+        "type": "integer",
+        "string": "Bounce"
+      },
+      "activity_ids": {
+        "type": "one2many",
+        "string": "Activities"
+      },
+      "activity_state": {
+        "type": "selection",
+        "string": "Activity State"
+      },
+      "activity_user_id": {
+        "type": "many2one",
+        "string": "Responsible User"
+      },
+      "activity_type_id": {
+        "type": "many2one",
+        "string": "Next Activity Type"
+      },
+      "activity_type_icon": {
+        "type": "char",
+        "string": "Activity Type Icon"
+      },
+      "activity_date_deadline": {
+        "type": "date",
+        "string": "Next Activity Deadline"
+      },
+      "my_activity_date_deadline": {
+        "type": "date",
+        "string": "My Activity Deadline"
+      },
+      "activity_summary": {
+        "type": "char",
+        "string": "Next Activity Summary"
+      },
+      "activity_exception_decoration": {
+        "type": "selection",
+        "string": "Activity Exception Decoration"
+      },
+      "activity_exception_icon": {
+        "type": "char",
+        "string": "Icon"
+      },
+      "activity_calendar_event_id": {
+        "type": "many2one",
+        "string": "Next Activity Calendar Event"
+      },
+      "image_1920": {
+        "type": "binary",
+        "string": "Image"
+      },
+      "image_1024": {
+        "type": "binary",
+        "string": "Image 1024"
+      },
+      "image_512": {
+        "type": "binary",
+        "string": "Image 512"
+      },
+      "image_256": {
+        "type": "binary",
+        "string": "Image 256"
+      },
+      "image_128": {
+        "type": "binary",
+        "string": "Image 128"
+      },
+      "avatar_1920": {
+        "type": "binary",
+        "string": "Avatar"
+      },
+      "avatar_1024": {
+        "type": "binary",
+        "string": "Avatar 1024"
+      },
+      "avatar_512": {
+        "type": "binary",
+        "string": "Avatar 512"
+      },
+      "avatar_256": {
+        "type": "binary",
+        "string": "Avatar 256"
+      },
+      "avatar_128": {
+        "type": "binary",
+        "string": "Avatar 128"
+      },
+      "name": {
+        "type": "char",
+        "string": "Name"
+      },
+      "complete_name": {
+        "type": "char",
+        "string": "Complete Name"
+      },
+      "date": {
+        "type": "date",
+        "string": "Date"
+      },
+      "title": {
+        "type": "many2one",
+        "string": "Title"
+      },
+      "parent_id": {
+        "type": "many2one",
+        "string": "Related Company"
+      },
+      "parent_name": {
+        "type": "char",
+        "string": "Parent name"
+      },
+      "child_ids": {
+        "type": "one2many",
+        "string": "Contact"
+      },
+      "ref": {
+        "type": "char",
+        "string": "Reference"
+      },
+      "lang": {
+        "type": "selection",
+        "string": "Language"
+      },
+      "active_lang_count": {
+        "type": "integer",
+        "string": "Active Lang Count"
+      },
+      "tz": {
+        "type": "selection",
+        "string": "Timezone"
+      },
+      "tz_offset": {
+        "type": "char",
+        "string": "Timezone offset"
+      },
+      "user_id": {
+        "type": "many2one",
+        "string": "Salesperson"
+      },
+      "vat": {
+        "type": "char",
+        "string": "Tax ID"
+      },
+      "same_vat_partner_id": {
+        "type": "many2one",
+        "string": "Partner with same Tax ID"
+      },
+      "same_company_registry_partner_id": {
+        "type": "many2one",
+        "string": "Partner with same Company Registry"
+      },
+      "company_registry": {
+        "type": "char",
+        "string": "Company ID"
+      },
+      "bank_ids": {
+        "type": "one2many",
+        "string": "Banks"
+      },
+      "website": {
+        "type": "char",
+        "string": "Website Link"
+      },
+      "comment": {
+        "type": "html",
+        "string": "Notes"
+      },
+      "category_id": {
+        "type": "many2many",
+        "string": "Tags"
+      },
+      "active": {
+        "type": "boolean",
+        "string": "Active"
+      },
+      "employee": {
+        "type": "boolean",
+        "string": "Employee"
+      },
+      "function": {
+        "type": "char",
+        "string": "Job Position"
+      },
+      "type": {
+        "type": "selection",
+        "string": "Address Type"
+      },
+      "street": {
+        "type": "char",
+        "string": "Street"
+      },
+      "street2": {
+        "type": "char",
+        "string": "Street2"
+      },
+      "zip": {
+        "type": "char",
+        "string": "Zip"
+      },
+      "city": {
+        "type": "char",
+        "string": "City"
+      },
+      "state_id": {
+        "type": "many2one",
+        "string": "State"
+      },
+      "country_id": {
+        "type": "many2one",
+        "string": "Country"
+      },
+      "country_code": {
+        "type": "char",
+        "string": "Country Code"
+      },
+      "partner_latitude": {
+        "type": "float",
+        "string": "Geo Latitude"
+      },
+      "partner_longitude": {
+        "type": "float",
+        "string": "Geo Longitude"
+      },
+      "email": {
+        "type": "char",
+        "string": "Email"
+      },
+      "email_formatted": {
+        "type": "char",
+        "string": "Formatted Email"
+      },
+      "phone": {
+        "type": "char",
+        "string": "Phone"
+      },
+      "mobile": {
+        "type": "char",
+        "string": "Mobile"
+      },
+      "is_company": {
+        "type": "boolean",
+        "string": "Is a Company"
+      },
+      "is_public": {
+        "type": "boolean",
+        "string": "Is Public"
+      },
+      "industry_id": {
+        "type": "many2one",
+        "string": "Industry"
+      },
+      "company_type": {
+        "type": "selection",
+        "string": "Company Type"
+      },
+      "company_id": {
+        "type": "many2one",
+        "string": "Company"
+      },
+      "color": {
+        "type": "integer",
+        "string": "Color Index"
+      },
+      "user_ids": {
+        "type": "one2many",
+        "string": "Users"
+      },
+      "partner_share": {
+        "type": "boolean",
+        "string": "Share Partner"
+      },
+      "contact_address": {
+        "type": "char",
+        "string": "Complete Address"
+      },
+      "commercial_partner_id": {
+        "type": "many2one",
+        "string": "Commercial Entity"
+      },
+      "commercial_company_name": {
+        "type": "char",
+        "string": "Company Name Entity"
+      },
+      "company_name": {
+        "type": "char",
+        "string": "Company Name"
+      },
+      "barcode": {
+        "type": "char",
+        "string": "Barcode"
+      },
+      "self": {
+        "type": "many2one",
+        "string": "Self"
+      },
+      "id": {
+        "type": "integer",
+        "string": "ID"
+      },
+      "display_name": {
+        "type": "char",
+        "string": "Display Name"
+      },
+      "create_uid": {
+        "type": "many2one",
+        "string": "Created by"
+      },
+      "create_date": {
+        "type": "datetime",
+        "string": "Created on"
+      },
+      "write_uid": {
+        "type": "many2one",
+        "string": "Last Updated by"
+      },
+      "write_date": {
+        "type": "datetime",
+        "string": "Last Updated on"
+      },
+      "im_status": {
+        "type": "char",
+        "string": "IM Status"
+      },
+      "date_localization": {
+        "type": "date",
+        "string": "Geolocation Date"
+      },
+      "channel_ids": {
+        "type": "many2many",
+        "string": "Channels"
+      },
+      "contact_address_inline": {
+        "type": "char",
+        "string": "Inlined Complete Address"
+      },
+      "starred_message_ids": {
+        "type": "many2many",
+        "string": "Starred Message"
+      },
+      "contact_address_complete": {
+        "type": "char",
+        "string": "Contact Address Complete"
+      },
+      "signup_token": {
+        "type": "char",
+        "string": "Signup Token"
+      },
+      "signup_type": {
+        "type": "char",
+        "string": "Signup Token Type"
+      },
+      "signup_expiration": {
+        "type": "datetime",
+        "string": "Signup Expiration"
+      },
+      "signup_valid": {
+        "type": "boolean",
+        "string": "Signup Token is Valid"
+      },
+      "signup_url": {
+        "type": "char",
+        "string": "Signup URL"
+      },
+      "meeting_count": {
+        "type": "integer",
+        "string": "# Meetings"
+      },
+      "meeting_ids": {
+        "type": "many2many",
+        "string": "Meetings"
+      },
+      "calendar_last_notif_ack": {
+        "type": "datetime",
+        "string": "Last notification marked as read from base Calendar"
+      },
+      "property_product_pricelist": {
+        "type": "many2one",
+        "string": "Pricelist"
+      },
+      "team_id": {
+        "type": "many2one",
+        "string": "Sales Team"
+      },
+      "image_medium": {
+        "type": "binary",
+        "string": "Medium-sized image"
+      },
+      "employee_ids": {
+        "type": "one2many",
+        "string": "Employees"
+      },
+      "employees_count": {
+        "type": "integer",
+        "string": "Employees Count"
+      },
+      "loyalty_card_count": {
+        "type": "integer",
+        "string": "Active loyalty cards"
+      },
+      "partner_gid": {
+        "type": "integer",
+        "string": "Company database ID"
+      },
+      "additional_info": {
+        "type": "char",
+        "string": "Additional info"
+      },
+      "phone_sanitized": {
+        "type": "char",
+        "string": "Sanitized Number"
+      },
+      "phone_sanitized_blacklisted": {
+        "type": "boolean",
+        "string": "Phone Blacklisted"
+      },
+      "phone_blacklisted": {
+        "type": "boolean",
+        "string": "Blacklisted Phone is Phone"
+      },
+      "mobile_blacklisted": {
+        "type": "boolean",
+        "string": "Blacklisted Phone Is Mobile"
+      },
+      "phone_mobile_search": {
+        "type": "char",
+        "string": "Phone/Mobile"
+      },
+      "event_count": {
+        "type": "integer",
+        "string": "# Events"
+      },
+      "static_map_url": {
+        "type": "char",
+        "string": "Static Map Url"
+      },
+      "static_map_url_is_valid": {
+        "type": "boolean",
+        "string": "Static Map Url Is Valid"
+      },
+      "ocn_token": {
+        "type": "char",
+        "string": "OCN Token"
+      },
+      "payment_token_ids": {
+        "type": "one2many",
+        "string": "Payment Tokens"
+      },
+      "payment_token_count": {
+        "type": "integer",
+        "string": "Payment Token Count"
+      },
+      "fiscal_country_codes": {
+        "type": "char",
+        "string": "Fiscal Country Codes"
+      },
+      "credit": {
+        "type": "monetary",
+        "string": "Total Receivable"
+      },
+      "credit_to_invoice": {
+        "type": "monetary",
+        "string": "Credit To Invoice"
+      },
+      "credit_limit": {
+        "type": "float",
+        "string": "Credit Limit"
+      },
+      "use_partner_credit_limit": {
+        "type": "boolean",
+        "string": "Partner Limit"
+      },
+      "show_credit_limit": {
+        "type": "boolean",
+        "string": "Show Credit Limit"
+      },
+      "days_sales_outstanding": {
+        "type": "float",
+        "string": "Days Sales Outstanding (DSO)"
+      },
+      "debit": {
+        "type": "monetary",
+        "string": "Total Payable"
+      },
+      "debit_limit": {
+        "type": "monetary",
+        "string": "Payable Limit"
+      },
+      "total_invoiced": {
+        "type": "monetary",
+        "string": "Total Invoiced"
+      },
+      "currency_id": {
+        "type": "many2one",
+        "string": "Currency"
+      },
+      "journal_item_count": {
+        "type": "integer",
+        "string": "Journal Items"
+      },
+      "property_account_payable_id": {
+        "type": "many2one",
+        "string": "Account Payable"
+      },
+      "property_account_receivable_id": {
+        "type": "many2one",
+        "string": "Account Receivable"
+      },
+      "property_account_position_id": {
+        "type": "many2one",
+        "string": "Fiscal Position"
+      },
+      "property_payment_term_id": {
+        "type": "many2one",
+        "string": "Customer Payment Terms"
+      },
+      "property_supplier_payment_term_id": {
+        "type": "many2one",
+        "string": "Vendor Payment Terms"
+      },
+      "ref_company_ids": {
+        "type": "one2many",
+        "string": "Companies that refers to partner"
+      },
+      "supplier_invoice_count": {
+        "type": "integer",
+        "string": "# Vendor Bills"
+      },
+      "has_unreconciled_entries": {
+        "type": "boolean",
+        "string": "Has Unreconciled Entries"
+      },
+      "last_time_entries_checked": {
+        "type": "datetime",
+        "string": "Latest Invoices & Payments Matching Date"
+      },
+      "invoice_ids": {
+        "type": "one2many",
+        "string": "Invoices"
+      },
+      "contract_ids": {
+        "type": "one2many",
+        "string": "Partner Contracts"
+      },
+      "bank_account_count": {
+        "type": "integer",
+        "string": "Bank"
+      },
+      "trust": {
+        "type": "selection",
+        "string": "Degree of trust you have in this debtor"
+      },
+      "invoice_warn": {
+        "type": "selection",
+        "string": "Invoice"
+      },
+      "invoice_warn_msg": {
+        "type": "text",
+        "string": "Message for Invoice"
+      },
+      "supplier_rank": {
+        "type": "integer",
+        "string": "Supplier Rank"
+      },
+      "customer_rank": {
+        "type": "integer",
+        "string": "Customer Rank"
+      },
+      "duplicated_bank_account_partners_count": {
+        "type": "integer",
+        "string": "Duplicated Bank Account Partners Count"
+      },
+      "is_coa_installed": {
+        "type": "boolean",
+        "string": "Is Coa Installed"
+      },
+      "opportunity_ids": {
+        "type": "one2many",
+        "string": "Opportunities"
+      },
+      "opportunity_count": {
+        "type": "integer",
+        "string": "Opportunity"
+      },
+      "ticket_count": {
+        "type": "integer",
+        "string": "Tickets"
+      },
+      "sla_ids": {
+        "type": "many2many",
+        "string": "SLA Policies"
+      },
+      "user_livechat_username": {
+        "type": "char",
+        "string": "User Livechat Username"
+      },
+      "project_ids": {
+        "type": "one2many",
+        "string": "Projects"
+      },
+      "task_ids": {
+        "type": "one2many",
+        "string": "Tasks"
+      },
+      "task_count": {
+        "type": "integer",
+        "string": "# Tasks"
+      },
+      "property_stock_customer": {
+        "type": "many2one",
+        "string": "Customer Location"
+      },
+      "property_stock_supplier": {
+        "type": "many2one",
+        "string": "Vendor Location"
+      },
+      "picking_warn": {
+        "type": "selection",
+        "string": "Stock Picking"
+      },
+      "picking_warn_msg": {
+        "type": "text",
+        "string": "Message for Stock Picking"
+      },
+      "visitor_ids": {
+        "type": "one2many",
+        "string": "Visitors"
+      },
+      "ubl_cii_format": {
+        "type": "selection",
+        "string": "Format"
+      },
+      "peppol_endpoint": {
+        "type": "char",
+        "string": "Peppol Endpoint"
+      },
+      "peppol_eas": {
+        "type": "selection",
+        "string": "Peppol e-address (EAS)"
+      },
+      "hide_peppol_fields": {
+        "type": "boolean",
+        "string": "Hide Peppol Fields"
+      },
+      "property_purchase_currency_id": {
+        "type": "many2one",
+        "string": "Supplier Currency"
+      },
+      "purchase_order_count": {
+        "type": "integer",
+        "string": "Purchase Order Count"
+      },
+      "purchase_warn": {
+        "type": "selection",
+        "string": "Purchase Order Warning"
+      },
+      "purchase_warn_msg": {
+        "type": "text",
+        "string": "Message for Purchase Order"
+      },
+      "receipt_reminder_email": {
+        "type": "boolean",
+        "string": "Receipt Reminder"
+      },
+      "reminder_date_before_receipt": {
+        "type": "integer",
+        "string": "Days Before Receipt"
+      },
+      "buyer_id": {
+        "type": "many2one",
+        "string": "Buyer"
+      },
+      "website_description": {
+        "type": "html",
+        "string": "Website Partner Full Description"
+      },
+      "website_short_description": {
+        "type": "text",
+        "string": "Website Partner Short Description"
+      },
+      "online_partner_information": {
+        "type": "char",
+        "string": "Online Partner Information"
+      },
+      "account_represented_company_ids": {
+        "type": "one2many",
+        "string": "Account Represented Company"
+      },
+      "pos_order_count": {
+        "type": "integer",
+        "string": "Pos Order Count"
+      },
+      "pos_order_ids": {
+        "type": "one2many",
+        "string": "Pos Order"
+      },
+      "purchase_line_ids": {
+        "type": "one2many",
+        "string": "Purchase Lines"
+      },
+      "on_time_rate": {
+        "type": "float",
+        "string": "On-Time Delivery Rate"
+      },
+      "sale_order_count": {
+        "type": "integer",
+        "string": "Sale Order Count"
+      },
+      "sale_order_ids": {
+        "type": "one2many",
+        "string": "Sales Order"
+      },
+      "sale_warn": {
+        "type": "selection",
+        "string": "Sales Warnings"
+      },
+      "sale_warn_msg": {
+        "type": "text",
+        "string": "Message for Sales Order"
+      },
+      "followup_next_action_date": {
+        "type": "date",
+        "string": "Next reminder"
+      },
+      "unreconciled_aml_ids": {
+        "type": "one2many",
+        "string": "Unreconciled Aml"
+      },
+      "unpaid_invoice_ids": {
+        "type": "one2many",
+        "string": "Unpaid Invoice"
+      },
+      "unpaid_invoices_count": {
+        "type": "integer",
+        "string": "Unpaid Invoices Count"
+      },
+      "total_due": {
+        "type": "monetary",
+        "string": "Total Due"
+      },
+      "total_overdue": {
+        "type": "monetary",
+        "string": "Total Overdue"
+      },
+      "followup_status": {
+        "type": "selection",
+        "string": "Follow-up Status"
+      },
+      "followup_line_id": {
+        "type": "many2one",
+        "string": "Follow-up Level"
+      },
+      "followup_reminder_type": {
+        "type": "selection",
+        "string": "Reminders"
+      },
+      "followup_responsible_id": {
+        "type": "many2one",
+        "string": "Responsible"
+      },
+      "property_delivery_carrier_id": {
+        "type": "many2one",
+        "string": "Delivery Method"
+      },
+      "is_driver": {
+        "type": "boolean",
+        "string": "Is Driver"
+      },
+      "slide_channel_ids": {
+        "type": "many2many",
+        "string": "eLearning Courses"
+      },
+      "slide_channel_completed_ids": {
+        "type": "one2many",
+        "string": "Completed Courses"
+      },
+      "slide_channel_count": {
+        "type": "integer",
+        "string": "Course Count"
+      },
+      "slide_channel_company_count": {
+        "type": "integer",
+        "string": "Company Course Count"
+      },
+      "last_website_so_id": {
+        "type": "many2one",
+        "string": "Last Online Sales Order"
+      },
+      "x_studio_account_receivable": {
+        "type": "many2one",
+        "string": "Account Receivable"
+      },
+      "x_studio_account_payable": {
+        "type": "many2one",
+        "string": "Account Payable"
+      },
+      "x_studio_monetary_field_4e8_1iolnl06i": {
+        "type": "monetary",
+        "string": "New Monetary"
+      },
+      "x_studio_many2many_field_7jk_1iolnovt4": {
+        "type": "many2many",
+        "string": "New Many2Many"
+      },
+      "x_studio_related_field_3fi_1iolnplt0": {
+        "type": "many2one",
+        "string": "New Related Field"
+      },
+      "x_studio_accounting_entries": {
+        "type": "char",
+        "string": "Accounting Entries"
+      }
+    }
+  },
+  "date_range": {
+    "from": "2023-12-31",
+    "to": "2026-05-27"
+  }
+}
