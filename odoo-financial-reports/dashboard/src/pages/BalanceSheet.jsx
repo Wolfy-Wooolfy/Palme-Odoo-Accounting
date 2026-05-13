@@ -6,6 +6,7 @@ import { useBalanceSheet } from '../hooks/useReports';
 import KPICard from '../components/KPICard';
 import DataTable from '../components/DataTable';
 import EmptyState from '../components/EmptyState';
+import ErrorBanner from '../components/ErrorBanner';
 import { formatCurrency, formatCompact } from '../utils/formatters';
 
 function Section({ title, data, total, loading, icon: Icon, color, filename, emptyMsg }) {
@@ -112,11 +113,7 @@ export default function BalanceSheet() {
         </div>
       )}
 
-      {error && (
-        <div className="bg-rose-50 border border-rose-200 rounded-xl p-4 text-sm text-rose-700">
-          {error.response?.data?.detail || error.message}
-        </div>
-      )}
+      <ErrorBanner error={error} />
 
       {/* Three sections */}
       <div className="bg-white border border-slate-200 rounded-xl overflow-hidden">

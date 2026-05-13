@@ -11,6 +11,7 @@ import FilterPanel from '../components/FilterPanel';
 import KPICard from '../components/KPICard';
 import DataTable from '../components/DataTable';
 import EmptyState from '../components/EmptyState';
+import ErrorBanner from '../components/ErrorBanner';
 import { formatCurrency, formatCompact, formatAxisCurrency } from '../utils/formatters';
 
 export default function SalesReport() {
@@ -41,11 +42,7 @@ export default function SalesReport() {
           subtitle={data?.cached ? t('common.cached') : t('common.live')} />
       </div>
 
-      {error && (
-        <div className="bg-rose-50 border border-rose-200 rounded-xl p-4 text-sm text-rose-700">
-          {error.response?.data?.detail || error.message}
-        </div>
-      )}
+      <ErrorBanner error={error} />
 
       {/* Monthly trend */}
       {!isLoading && monthlyTrend.length > 0 && (

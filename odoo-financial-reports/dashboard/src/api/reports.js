@@ -1,11 +1,18 @@
 import client from './client';
 
-// Ensures company_id is always null|integer and posted_only is always boolean
-// before any payload reaches the backend. Guards against stale/invalid state.
+// Normalises every payload before it hits the backend:
+//  - Swaps date_from/date_to when reversed (PeriodFilter validator rejects date_to < date_from → 422)
+//  - Coerces company_id to null|integer (never "")
+//  - Ensures posted_only is boolean
 function norm(filters) {
-  const { company_id, posted_only, ...rest } = filters ?? {};
+  if (!filters) return {};
+  const { company_id, posted_only, date_from: df, date_to: dt, ...rest } = filters;
+  let date_from = df, date_to = dt;
+  if (date_from && date_to && date_from > date_to) [date_from, date_to] = [date_to, date_from];
   return {
     ...rest,
+    date_from,
+    date_to,
     company_id:
       company_id != null && company_id !== '' && !Number.isNaN(+company_id) && +company_id > 0
         ? +company_id

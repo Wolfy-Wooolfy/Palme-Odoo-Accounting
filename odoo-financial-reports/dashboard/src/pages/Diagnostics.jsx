@@ -5,6 +5,7 @@ import { useFilters } from '../context/FilterContext';
 import { useDiagnostic } from '../hooks/useReports';
 import KPICard from '../components/KPICard';
 import LoadingSpinner from '../components/LoadingSpinner';
+import ErrorBanner from '../components/ErrorBanner';
 import { formatCurrency, formatCompact } from '../utils/formatters';
 
 function SeverityIcon({ severity }) {
@@ -151,11 +152,7 @@ export default function Diagnostics() {
         </div>
       </div>
 
-      {error && (
-        <div className="bg-rose-50 border border-rose-200 rounded-xl p-4 text-sm text-rose-700">
-          {error.response?.data?.detail || error.message}
-        </div>
-      )}
+      <ErrorBanner error={error} />
 
       {isLoading && (
         <div className="flex items-center justify-center py-16">

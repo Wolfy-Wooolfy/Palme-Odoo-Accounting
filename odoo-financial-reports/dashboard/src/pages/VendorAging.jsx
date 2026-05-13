@@ -9,6 +9,7 @@ import { useFilters } from '../context/FilterContext';
 import KPICard from '../components/KPICard';
 import DataTable from '../components/DataTable';
 import EmptyState from '../components/EmptyState';
+import ErrorBanner from '../components/ErrorBanner';
 import { formatCurrency, formatCompact, formatAxisCurrency } from '../utils/formatters';
 
 const BUCKET_COLORS = ['#10b981','#84cc16','#f59e0b','#f97316','#ef4444','#991b1b'];
@@ -79,11 +80,7 @@ export default function VendorAging() {
         <KPICard title={t('aging.partner_count')} value={data?.partner_count?.toLocaleString()} icon={Clock} color="sky" loading={isLoading} />
       </div>
 
-      {error && (
-        <div className="bg-rose-50 border border-rose-200 rounded-xl p-4 text-sm text-rose-700">
-          {error.response?.data?.detail || error.message}
-        </div>
-      )}
+      <ErrorBanner error={error} />
 
       {!isLoading && chartData.length > 0 && (
         <div className="bg-white border border-slate-200 rounded-xl p-5">

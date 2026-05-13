@@ -26,8 +26,15 @@ export default function FilterPanel({ onApply, hideDate = false }) {
   const activePreset = matchesPreset(local.date_from, local.date_to);
 
   const apply = () => {
-    setFilters(local);
-    onApply?.(local);
+    let toApply = { ...local };
+    // Swap reversed dates rather than sending them to the backend, where
+    // PeriodFilter's model_validator would reject date_to < date_from with 422.
+    if (toApply.date_from && toApply.date_to && toApply.date_from > toApply.date_to) {
+      [toApply.date_from, toApply.date_to] = [toApply.date_to, toApply.date_from];
+      setLocal(toApply);
+    }
+    setFilters(toApply);
+    onApply?.(toApply);
   };
 
   const setPreset = (preset) => {

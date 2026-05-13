@@ -5,12 +5,15 @@ const FilterContext = createContext(null);
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 
-// Normalise a raw filter object — guards against stale localStorage data that
-// would send an invalid payload and trigger a backend 422.
+// Normalise a raw filter object — guards against stale localStorage data.
+// Drops the object entirely (returns null) if dates are invalid ISO strings.
+// Swaps date_from/date_to when reversed so PeriodFilter never rejects with 422.
 function sanitizeFilters(obj) {
   if (!obj || typeof obj !== 'object') return null;
-  const { date_from, date_to, company_id, posted_only } = obj;
+  const { company_id, posted_only } = obj;
+  let { date_from, date_to } = obj;
   if (!DATE_RE.test(date_from) || !DATE_RE.test(date_to)) return null;
+  if (date_from > date_to) [date_from, date_to] = [date_to, date_from];
   const cid =
     company_id == null || company_id === '' || Number.isNaN(+company_id)
       ? null

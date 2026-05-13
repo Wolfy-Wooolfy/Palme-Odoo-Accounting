@@ -10,6 +10,7 @@ import FilterPanel from '../components/FilterPanel';
 import KPICard from '../components/KPICard';
 import DataTable from '../components/DataTable';
 import EmptyState from '../components/EmptyState';
+import ErrorBanner from '../components/ErrorBanner';
 import { formatCurrency, formatCompact, formatPercent, formatAxisCurrency } from '../utils/formatters';
 
 const CustomTooltip = ({ active, payload }) => {
@@ -84,11 +85,7 @@ export default function ProfitLoss() {
         />
       </div>
 
-      {error && (
-        <div className="bg-rose-50 border border-rose-200 rounded-xl p-4 text-sm text-rose-700">
-          {error.response?.data?.detail || error.message}
-        </div>
-      )}
+      <ErrorBanner error={error} />
 
       {/* Top accounts chart */}
       {!isLoading && top10.length > 0 && (

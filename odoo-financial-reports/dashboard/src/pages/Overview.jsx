@@ -153,7 +153,7 @@ export default function Overview() {
             {t('charts.balance_sheet_breakdown')} · {t('kpi.as_of', { date: filters.date_to })}
           </h2>
           <div className="flex items-center gap-8">
-            <ResponsiveContainer width={240} height={200}>
+            <ResponsiveContainer width="100%" height={200}>
               <PieChart>
                 <Pie data={bsPie} cx="50%" cy="50%" innerRadius={60} outerRadius={90} dataKey="value">
                   {bsPie.map((_, i) => <Cell key={i} fill={PIE_COLORS[i]} />)}

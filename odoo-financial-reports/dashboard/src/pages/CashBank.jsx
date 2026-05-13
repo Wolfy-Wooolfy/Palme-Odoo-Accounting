@@ -9,6 +9,7 @@ import { useCashBank } from '../hooks/useReports';
 import FilterPanel from '../components/FilterPanel';
 import KPICard from '../components/KPICard';
 import EmptyState from '../components/EmptyState';
+import ErrorBanner from '../components/ErrorBanner';
 import { formatCurrency, formatCompact, formatAxisCurrency } from '../utils/formatters';
 import clsx from 'clsx';
 
@@ -99,18 +100,14 @@ export default function CashBank() {
         />
       </div>
 
-      {error && (
-        <div className="bg-rose-50 border border-rose-200 rounded-xl p-4 text-sm text-rose-700">
-          {error.response?.data?.detail || error.message}
-        </div>
-      )}
+      <ErrorBanner error={error} />
 
       {/* Pie chart */}
       {!isLoading && pieData.length > 0 && (
         <div className="bg-white border border-slate-200 rounded-xl p-5">
           <h2 className="text-sm font-semibold text-slate-700 mb-4">{t('cash_bank.distribution')}</h2>
           <div className="flex flex-wrap items-center gap-6">
-            <ResponsiveContainer width={260} height={200}>
+            <ResponsiveContainer width="100%" height={200}>
               <PieChart>
                 <Pie data={pieData} cx="50%" cy="50%" innerRadius={55} outerRadius={85} dataKey="value">
                   {pieData.map((e, i) => <Cell key={i} fill={e.fill} />)}

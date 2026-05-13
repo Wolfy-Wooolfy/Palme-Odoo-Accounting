@@ -7,6 +7,7 @@ import { useFilters } from '../context/FilterContext';
 import FilterPanel from '../components/FilterPanel';
 import KPICard from '../components/KPICard';
 import EmptyState from '../components/EmptyState';
+import ErrorBanner from '../components/ErrorBanner';
 import { formatCurrency, formatCompact } from '../utils/formatters';
 import { useLanguage } from '../context/LanguageContext';
 import clsx from 'clsx';
@@ -168,11 +169,7 @@ export default function GeneralLedger() {
         </div>
       )}
 
-      {error && (
-        <div className="bg-rose-50 border border-rose-200 rounded-xl p-4 text-sm text-rose-700">
-          {error.response?.data?.detail || error.message}
-        </div>
-      )}
+      <ErrorBanner error={error} />
 
       {/* Table */}
       {selectedAccount && (
