@@ -50,3 +50,43 @@ def safety_status():
         "allowed_methods": sorted(ALLOWED_METHODS),
         "blocked_methods": sorted(FORBIDDEN_METHODS),
     }
+
+
+@router.get("/accounts/search")
+def accounts_search(
+    q: str = "",
+    limit: int = 50,
+    client=Depends(get_odoo_client),
+):
+    """Search accounts by code or name. Used by General Ledger account selector."""
+    base = [("deprecated", "=", False)]
+    if q:
+        domain = ["&", ("deprecated", "=", False),
+                  "|", ("code", "ilike", q), ("name", "ilike", q)]
+    else:
+        domain = base
+
+    return client.search_read(
+        "account.account",
+        domain=domain,
+        fields=["id", "code", "name", "account_type"],
+        limit=min(limit, 100),
+        order="code asc",
+    )
+
+
+@router.get("/cache/stats")
+def cache_stats():
+    from api.cache.sqlite_cache import get_cache
+    from api.config import settings
+    cache = get_cache(settings.cache_db_path, settings.cache_ttl_seconds)
+    return cache.stats()
+
+
+@router.post("/cache/clear")
+def clear_cache():
+    from api.cache.sqlite_cache import get_cache
+    from api.config import settings
+    cache = get_cache(settings.cache_db_path, settings.cache_ttl_seconds)
+    count = cache.clear_all()
+    return {"cleared": count}
