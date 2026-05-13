@@ -57,6 +57,7 @@ ALLOWED_METHODS: frozenset[str] = frozenset({
     "fields_get", "name_search", "name_get", "default_get",
     "check_access_rights", "check_access_rule",
     "get_metadata",
+    "read_group",  # server-side aggregation — read-only
 })
 
 

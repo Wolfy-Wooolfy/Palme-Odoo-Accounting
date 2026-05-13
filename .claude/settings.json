@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(cd \"d:\\\\S\\\\Halo\\\\Tech\\\\Palme-Odoo-Accounting\\\\odoo-financial-reports\"; $env:PYTHONUTF8=\"1\"; .\\\\venv\\\\Scripts\\\\python.exe _diag2.py 2>&1)"
+    ]
+  }
+}
