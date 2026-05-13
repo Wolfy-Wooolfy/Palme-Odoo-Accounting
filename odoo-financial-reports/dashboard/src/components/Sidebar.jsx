@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import {
   LayoutDashboard, Scale, TrendingUp, BookOpen, Settings,
   ChevronLeft, ChevronRight, Users, Truck, Landmark, BookMarked,
-  ShoppingCart, Package, Stethoscope,
+  ShoppingCart, Package, Stethoscope, Sparkles,
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../context/LanguageContext';
@@ -49,6 +49,12 @@ const NAV_GROUPS = [
     items: [
       { to: '/diagnostics', icon: Stethoscope, key: 'nav.diagnostics' },
       { to: '/settings', icon: Settings, key: 'nav.settings' },
+    ],
+  },
+  {
+    key: 'group_ai',
+    items: [
+      { to: '/chat', icon: Sparkles, key: 'nav.ai_chat' },
     ],
   },
 ];

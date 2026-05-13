@@ -13,6 +13,13 @@ class Settings(BaseSettings):
 
     cors_origins: list[str] = ["http://localhost:5173", "http://localhost:3000"]
 
+    # AI assistant (optional — chat endpoint is disabled if not set)
+    openai_api_key: str = ""
+    openai_model: str = "gpt-4o-mini"
+    ai_max_tokens: int = 1024
+    ai_temperature: float = 0.2
+    ai_max_tool_iterations: int = 6
+
     class Config:
         env_file = ".env"
         extra = "ignore"

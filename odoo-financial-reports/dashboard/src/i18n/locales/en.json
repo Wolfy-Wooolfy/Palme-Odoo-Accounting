@@ -21,7 +21,9 @@
     "group_aging": "Aging",
     "group_cash": "Cash Flow",
     "group_activity": "Activity",
-    "group_system": "System"
+    "group_system": "System",
+    "group_ai": "AI Assistant",
+    "ai_chat": "AI Chat"
   },
   "common": {
     "refresh": "Refresh",
@@ -251,6 +253,21 @@
     "cache_expired": "Expired",
     "clear_cache": "Clear All Cache",
     "clearing": "Clearing…"
+  },
+  "chat": {
+    "title": "AI Financial Assistant",
+    "subtitle": "Powered by {{model}} · Read-only",
+    "welcome_title": "Ask anything about your finances",
+    "welcome_subtitle": "I can fetch live data from all reports and answer questions in Arabic or English.",
+    "suggest_1": "What is the net profit this month?",
+    "suggest_2": "Show me the top 5 revenue accounts",
+    "suggest_3": "How much do customers owe us as of today?",
+    "suggest_4": "Compare this month's sales to last month",
+    "input_placeholder": "Ask a financial question…",
+    "shift_enter_hint": "Enter to send · Shift+Enter for new line",
+    "error_reply": "Sorry, something went wrong. Please try again.",
+    "not_configured_title": "AI Assistant Not Configured",
+    "not_configured_body": "Add your OpenAI API key to the .env file to enable the AI assistant:"
   },
   "safety": {
     "badge": "READ-ONLY",

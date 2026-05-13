@@ -9,6 +9,7 @@ from api.routers import (
     aging,
     balance_sheet,
     cash_bank,
+    chat,
     diagnostics,
     general_ledger,
     meta,
@@ -67,6 +68,9 @@ app.include_router(cash_bank.router, prefix="/api/v1")
 app.include_router(general_ledger.router, prefix="/api/v1")
 app.include_router(sales.router, prefix="/api/v1")
 app.include_router(purchases.router, prefix="/api/v1")
+
+# Phase 2D — AI chat
+app.include_router(chat.router, prefix="/api/v1")
 
 
 if __name__ == "__main__":

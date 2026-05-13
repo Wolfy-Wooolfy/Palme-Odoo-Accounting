@@ -16,6 +16,7 @@ const GeneralLedger = lazy(() => import('./pages/GeneralLedger'));
 const SalesReport = lazy(() => import('./pages/SalesReport'));
 const PurchaseReport = lazy(() => import('./pages/PurchaseReport'));
 const Settings = lazy(() => import('./pages/Settings'));
+const AIChat = lazy(() => import('./pages/AIChat'));
 
 const PageFallback = () => (
   <div className="flex items-center justify-center h-64">
@@ -41,6 +42,7 @@ export default function App() {
             <Route path="/sales" element={<SalesReport />} />
             <Route path="/purchases" element={<PurchaseReport />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/chat" element={<AIChat />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>
