@@ -10,6 +10,7 @@ const PAGE_TITLE_KEYS = {
   '/trial-balance': 'nav.trial_balance',
   '/profit-loss': 'nav.profit_loss',
   '/balance-sheet': 'nav.balance_sheet',
+  '/pos-sessions': 'nav.pos_sessions',
   '/settings': 'nav.settings',
 };
 

@@ -13,6 +13,7 @@ from api.routers import (
     diagnostics,
     general_ledger,
     meta,
+    pos_sessions,
     profit_loss,
     purchases,
     sales,
@@ -68,6 +69,9 @@ app.include_router(cash_bank.router, prefix="/api/v1")
 app.include_router(general_ledger.router, prefix="/api/v1")
 app.include_router(sales.router, prefix="/api/v1")
 app.include_router(purchases.router, prefix="/api/v1")
+
+# Phase 3A — POS Session Monitor (Area 1)
+app.include_router(pos_sessions.router, prefix="/api/v1")
 
 # Phase 2D — AI chat
 app.include_router(chat.router, prefix="/api/v1")

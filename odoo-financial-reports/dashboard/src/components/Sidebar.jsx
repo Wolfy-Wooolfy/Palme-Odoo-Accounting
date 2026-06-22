@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import {
   LayoutDashboard, Scale, TrendingUp, BookOpen, Settings,
   ChevronLeft, ChevronRight, Users, Truck, Landmark, BookMarked,
-  ShoppingCart, Package, Stethoscope, Sparkles,
+  ShoppingCart, Package, Stethoscope, Sparkles, Store,
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../context/LanguageContext';
@@ -42,6 +42,13 @@ const NAV_GROUPS = [
     items: [
       { to: '/sales', icon: ShoppingCart, key: 'nav.sales' },
       { to: '/purchases', icon: Package, key: 'nav.purchases' },
+    ],
+  },
+  {
+    // Fully-qualified i18n key so the group label resolves under the `nav` namespace.
+    key: 'nav.group_operations',
+    items: [
+      { to: '/pos-sessions', icon: Store, key: 'nav.pos_sessions' },
     ],
   },
   {
