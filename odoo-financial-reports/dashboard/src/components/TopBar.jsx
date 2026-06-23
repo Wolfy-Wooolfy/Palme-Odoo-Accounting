@@ -11,6 +11,7 @@ const PAGE_TITLE_KEYS = {
   '/profit-loss': 'nav.profit_loss',
   '/balance-sheet': 'nav.balance_sheet',
   '/pos-sessions': 'nav.pos_sessions',
+  '/visa-reconciliation': 'nav.visa_reconciliation',
   '/settings': 'nav.settings',
 };
 

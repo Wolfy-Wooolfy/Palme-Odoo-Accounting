@@ -3,7 +3,7 @@ import {
   fetchTrialBalance, fetchProfitLoss, fetchBalanceSheet,
   fetchDiagnostic, fetchCustomerAging, fetchVendorAging,
   fetchCashBank, fetchGeneralLedger, fetchSales, fetchPurchases,
-  fetchPosSessions,
+  fetchPosSessions, fetchVisaReconciliation,
 } from '../api/reports';
 
 const STALE = 5 * 60 * 1000; // 5 min
@@ -102,6 +102,15 @@ export const usePosSessions = (filters, options = {}) =>
   useQuery({
     queryKey: ['pos-sessions', filters],
     queryFn: () => fetchPosSessions(filters),
+    enabled: !!(filters?.date_from && filters?.date_to),
+    staleTime: STALE,
+    ...options,
+  });
+
+export const useVisaReconciliation = (filters, options = {}) =>
+  useQuery({
+    queryKey: ['visa-reconciliation', filters],
+    queryFn: () => fetchVisaReconciliation(filters),
     enabled: !!(filters?.date_from && filters?.date_to),
     staleTime: STALE,
     ...options,

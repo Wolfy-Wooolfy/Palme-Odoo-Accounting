@@ -54,5 +54,8 @@ export const fetchPurchases = (filters) =>
 export const fetchPosSessions = (filters) =>
   client.post('/reports/pos-sessions', norm(filters)).then((r) => r.data);
 
+export const fetchVisaReconciliation = (filters) =>
+  client.post('/reports/visa-reconciliation', norm(filters)).then((r) => r.data);
+
 export const searchAccounts = (q = '', limit = 50) =>
   client.get('/accounts/search', { params: { q, limit } }).then((r) => r.data);

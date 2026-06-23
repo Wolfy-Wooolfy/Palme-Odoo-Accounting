@@ -18,6 +18,7 @@ from api.routers import (
     purchases,
     sales,
     trial_balance,
+    visa_reconciliation,
 )
 from src.odoo_client import OdooReadOnlyClient
 from src.utils.safety_test import run_safety_self_test
@@ -72,6 +73,9 @@ app.include_router(purchases.router, prefix="/api/v1")
 
 # Phase 3A — POS Session Monitor (Area 1)
 app.include_router(pos_sessions.router, prefix="/api/v1")
+
+# Phase 3B — Visa / Card Reconciliation Monitor (Area 2)
+app.include_router(visa_reconciliation.router, prefix="/api/v1")
 
 # Phase 2D — AI chat
 app.include_router(chat.router, prefix="/api/v1")

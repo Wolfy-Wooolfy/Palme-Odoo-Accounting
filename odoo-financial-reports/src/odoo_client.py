@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import os
 import re
+import threading
 import xmlrpc.client
 from datetime import datetime
 from pathlib import Path
@@ -72,6 +73,14 @@ class OdooReadOnlyClient:
     ) -> None:
         # ── Layer 4: instance-level flag (name-mangled → harder to tamper) ─
         self.__read_only: bool = True
+
+        # Thread-safety (NOT a safety layer — concurrency only): uvicorn runs sync
+        # endpoints in a threadpool, so this singleton client is shared across worker
+        # threads. The XML-RPC ServerProxy keeps ONE persistent socket and is NOT
+        # thread-safe — concurrent calls raise http.client.CannotSendRequest. This lock
+        # serialises the RPC dispatch in execute_kw so calls never overlap on the socket.
+        # It does not touch any of the 7 read-only guards (those still run on every call).
+        self._rpc_lock = threading.Lock()
 
         self._audit = audit_logger
 
@@ -409,20 +418,27 @@ class OdooReadOnlyClient:
         self._check_method(model, method)
         kwargs = kwargs or {}
 
-        try:
-            if self.api_method in ("json-rpc", "json-rpc-session"):
-                result = self._execute_json_rpc(model, method, args, kwargs)
-            else:
-                result = self._execute_xml_rpc(model, method, args, kwargs)
-            if self._audit:
-                self._audit.log_call(model, method, success=True)
-            return result
-        except PermissionError:
-            raise
-        except Exception as exc:
-            if self._audit:
-                self._audit.log_call(model, method, success=False, error=str(exc))
-            raise
+        # Serialise ONLY the RPC dispatch on the shared, non-thread-safe socket. The
+        # safety guards above (Layers 1/2/4) already ran on this call BEFORE the lock —
+        # they are pure checks that touch no socket — so the lock changes nothing about
+        # read-only enforcement; it just stops concurrent threadpool requests from
+        # overlapping on the one XML-RPC connection (-> CannotSendRequest). Layers 3/5
+        # (SafeHttpClient) and 7 (audit) remain inside the dispatch path, unchanged.
+        with self._rpc_lock:
+            try:
+                if self.api_method in ("json-rpc", "json-rpc-session"):
+                    result = self._execute_json_rpc(model, method, args, kwargs)
+                else:
+                    result = self._execute_xml_rpc(model, method, args, kwargs)
+                if self._audit:
+                    self._audit.log_call(model, method, success=True)
+                return result
+            except PermissionError:
+                raise
+            except Exception as exc:
+                if self._audit:
+                    self._audit.log_call(model, method, success=False, error=str(exc))
+                raise
 
     def _execute_json_rpc(self, model: str, method: str, args: list, kwargs: dict) -> Any:
         # Note: SafeHttpClient (Layer 5) will re-inspect this payload before sending
