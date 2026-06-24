@@ -15,7 +15,7 @@ Read-only; writes nothing to Odoo. Re-runnable.
 Run from odoo-financial-reports/ :
     PYTHONIOENCODING=utf-8 python verify_pos_monitor.py
 Point the HTTP layer at a running server with:
-    POS_MONITOR_BASE_URL=http://127.0.0.1:8000   (default)
+    POS_MONITOR_BASE_URL=http://127.0.0.1:8200   (default)
 """
 from __future__ import annotations
 
@@ -30,7 +30,7 @@ from api.models.pos import PosMonitorFilter
 from api.services.pos_sessions import compute_pos_sessions
 from src.odoo_client import OdooReadOnlyClient
 
-BASE_URL = os.environ.get("POS_MONITOR_BASE_URL", "http://127.0.0.1:8000").rstrip("/")
+BASE_URL = os.environ.get("POS_MONITOR_BASE_URL", "http://127.0.0.1:8200").rstrip("/")
 API = BASE_URL + "/api/v1"
 JAN_2026 = {"date_from": "2026-01-01", "date_to": "2026-01-31", "company_id": None, "posted_only": True}
 

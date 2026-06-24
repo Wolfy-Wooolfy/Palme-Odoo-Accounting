@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE = import.meta.env.VITE_API_URL ?? 'http://localhost:8000';
+const BASE = import.meta.env.VITE_API_URL ?? 'http://localhost:8200';
 
 export async function sendChat(payload) {
   const { data } = await axios.post(`${BASE}/api/v1/chat`, payload);

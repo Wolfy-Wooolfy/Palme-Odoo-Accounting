@@ -8,6 +8,7 @@ from api.deps import get_audit_logger, get_odoo_client
 from api.routers import (
     aging,
     balance_sheet,
+    bank_movements,
     cash_bank,
     chat,
     diagnostics,
@@ -77,10 +78,13 @@ app.include_router(pos_sessions.router, prefix="/api/v1")
 # Phase 3B — Visa / Card Reconciliation Monitor (Area 2)
 app.include_router(visa_reconciliation.router, prefix="/api/v1")
 
+# Phase 3C — Bank Movements & Gaps (Area 3)
+app.include_router(bank_movements.router, prefix="/api/v1")
+
 # Phase 2D — AI chat
 app.include_router(chat.router, prefix="/api/v1")
 
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("api.main:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run("api.main:app", host="127.0.0.1", port=8200, reload=True)

@@ -17,6 +17,7 @@ const SalesReport = lazy(() => import('./pages/SalesReport'));
 const PurchaseReport = lazy(() => import('./pages/PurchaseReport'));
 const PosSessions = lazy(() => import('./pages/PosSessions'));
 const VisaReconciliation = lazy(() => import('./pages/VisaReconciliation'));
+const BankMovements = lazy(() => import('./pages/BankMovements'));
 const Settings = lazy(() => import('./pages/Settings'));
 const AIChat = lazy(() => import('./pages/AIChat'));
 
@@ -45,6 +46,7 @@ export default function App() {
             <Route path="/purchases" element={<PurchaseReport />} />
             <Route path="/pos-sessions" element={<PosSessions />} />
             <Route path="/visa-reconciliation" element={<VisaReconciliation />} />
+            <Route path="/bank-movements" element={<BankMovements />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/chat" element={<AIChat />} />
             <Route path="*" element={<Navigate to="/" replace />} />

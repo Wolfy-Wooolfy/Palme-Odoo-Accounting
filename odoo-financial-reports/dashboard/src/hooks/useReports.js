@@ -4,6 +4,7 @@ import {
   fetchDiagnostic, fetchCustomerAging, fetchVendorAging,
   fetchCashBank, fetchGeneralLedger, fetchSales, fetchPurchases,
   fetchPosSessions, fetchVisaReconciliation, fetchVisaBranchDetail,
+  fetchBankMovements, fetchBankGapDetail,
 } from '../api/reports';
 
 const STALE = 5 * 60 * 1000; // 5 min
@@ -124,6 +125,31 @@ export const useVisaBranchDetail = (filters, options = {}) =>
     queryKey: ['visa-branch-detail', filters],
     queryFn: () => fetchVisaBranchDetail(filters),
     enabled: !!(filters?.company_id && filters?.journal_id),
+    staleTime: STALE,
+    ...options,
+  });
+
+// Bank Movements & Gaps (Area 3). filters carries the standard date/company filter
+// PLUS gaps_only / offset / limit — all part of the query key so the gaps-only toggle
+// and pagination refetch. Dates only drive movement VOLUME (gaps are full-history), so
+// the gate matches the other date-driven reports.
+export const useBankMovements = (filters, options = {}) =>
+  useQuery({
+    queryKey: ['bank-movements', filters],
+    queryFn: () => fetchBankMovements(filters),
+    enabled: !!(filters?.date_from && filters?.date_to),
+    staleTime: STALE,
+    ...options,
+  });
+
+// Lazy per-bank GAP drill-down — only fires once a bank row's gap is opened
+// (journal_id present). Dates are ignored server-side (the gap is full-history "as of
+// today"), so they are not part of the enable gate; company_id + offset/limit are.
+export const useBankGapDetail = (filters, options = {}) =>
+  useQuery({
+    queryKey: ['bank-gap-detail', filters],
+    queryFn: () => fetchBankGapDetail(filters),
+    enabled: !!filters?.journal_id,
     staleTime: STALE,
     ...options,
   });

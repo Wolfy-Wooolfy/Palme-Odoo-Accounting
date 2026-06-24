@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import {
   LayoutDashboard, Scale, TrendingUp, BookOpen, Settings,
   ChevronLeft, ChevronRight, Users, Truck, Landmark, BookMarked,
-  ShoppingCart, Package, Stethoscope, Sparkles, Store, CreditCard,
+  ShoppingCart, Package, Stethoscope, Sparkles, Store, CreditCard, Banknote,
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../context/LanguageContext';
@@ -50,6 +50,7 @@ const NAV_GROUPS = [
     items: [
       { to: '/pos-sessions', icon: Store, key: 'nav.pos_sessions' },
       { to: '/visa-reconciliation', icon: CreditCard, key: 'nav.visa_reconciliation' },
+      { to: '/bank-movements', icon: Banknote, key: 'nav.bank_movements' },
     ],
   },
   {

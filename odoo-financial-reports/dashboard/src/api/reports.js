@@ -60,5 +60,11 @@ export const fetchVisaReconciliation = (filters) =>
 export const fetchVisaBranchDetail = (filters) =>
   client.post('/reports/visa-reconciliation/branch-detail', norm(filters)).then((r) => r.data);
 
+export const fetchBankMovements = (filters) =>
+  client.post('/reports/bank-movements', norm(filters)).then((r) => r.data);
+
+export const fetchBankGapDetail = (filters) =>
+  client.post('/reports/bank-movements/gap-detail', norm(filters)).then((r) => r.data);
+
 export const searchAccounts = (q = '', limit = 50) =>
   client.get('/accounts/search', { params: { q, limit } }).then((r) => r.data);

@@ -28,7 +28,7 @@ export default function Settings() {
           <Row label={t('settings.mode')} value={<span className="bg-emerald-100 text-emerald-700 text-xs font-semibold px-2 py-0.5 rounded-full">{t('safety.badge')}</span>} />
           <div className="pt-2">
             <a
-              href="http://127.0.0.1:8000/docs"
+              href="http://127.0.0.1:8200/docs"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-sm text-primary-600 hover:text-primary-700 font-medium"

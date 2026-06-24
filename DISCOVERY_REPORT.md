@@ -421,3 +421,104 @@ Clock starts at `stop_at`, counting begins the next day, skip Fridays only. Serv
 Drive the monitor off the **holding running balance per branch journal**, collections tagged by session `stop_at`,
 confirmations = holding credits whose move has a **`63001`** leg; FIFO the two streams and raise **Late** when the
 oldest unconfirmed collection's `stop_at + 2 working days (skip Fridays) < server-today`.
+
+---
+
+## Area 3 — Bank Movements & Gap Mechanics
+
+> Final pre-build discovery (**2026-06-24**, server time), 100% read-only. Gather script:
+> `src/area3_bank_discovery.py` → `PYTHONIOENCODING=utf-8 python -m src.area3_bank_discovery`
+> (raw dump: `output/area3_bank_discovery_raw.json`). Counts drift ±a handful on this live prod DB.
+> Confirms & deepens the earlier **AREA 3** section above — no contradictions, three corrections noted inline.
+> **The user's question:** *"see ALL bank movements and whether there are GAPS or everything is reconciled —
+> everything is supposed to be recorded."* Answer below: the true **bank statement lines are 100% clean (gap = 0)**;
+> the real exposure is **unreconciled `account.payment` (≈419M EGP)** + **bank-suspense net balance (≈18M EGP)**.
+
+### 1. Bank-journal inventory — the screen's backbone (Visa-holding EXCLUDED)
+`account.journal type='bank'` = **83**. These split into **27 REAL bank/treasury journals** and **56 Visa-holding
+journals** (the per-branch `VIS*` card journals already owned by Area 2).
+
+**How to tell them apart (used by the script):** a journal is **Visa-holding** when its `code` starts `VIS` **or**
+its name / `default_account_id` name contains `فيزا`/`visa`, **and** it has **no `bank_account_id`**. A **real bank**
+journal’s `default_account_id` is a bank GL account (`asset_cash`/`asset_current`, code `1014xx`/bank-named) and its
+`code` is `BNK*`/`CSH$*`. Verification: the 56 Visa journals carry only **21 stray statement lines total** (cards
+bypass statement lines), vs **920** on the 27 real-bank journals — the classification holds.
+
+**27 real bank journals per company** (these are the rows the screen lists):
+
+| Company | # | Journals (code — name) |
+|---|---|---|
+| **co1 Palme** | 10 | BNK2/BNK3 بنك مصر, BNK4 بنك مصر مدفوعات حكومية, BNK46 بنك مصر 1489, BNK5 بنك الاسكندرية, BNK6 بنك QNB, BNK7 انستا بنك مصر, BNK9 بنك ابو ظبى, **BNK16 خزينة دولار**, **BNK17 بنك اسكندرية $** |
+| **co2 ##Manufacture##** | 6 | BNK1/BNK2 Qnb, BNK3 بنك مصر 199, BNK4 بنك مصر 655, BNK5 بنك مصر 1489, BNK6 بنك مصر 1933 |
+| **co3 #بالميه#.** | 11 | BNK01-04 بنك مصر, BNK05 QNB, BNK06 انستا, BNK07 QNB, BNK08 ابو ظبى, BNK09 بنك اسكندرية $, **BNK99 اوراق قبض**, **CSH$1 خزينة دولار** |
+
+> ⚠ 3 of the 27 are **not** clearing banks: `BNK16`/`CSH$1` خزينة دولار (FX cash treasuries) and `BNK99 اوراق قبض`
+> (notes-receivable). They’re legitimate liquidity journals — keep them, but a "bank account" filter may want to tag
+> them *FX-treasury / notes* vs *clearing-bank*. (cash-type journals = 58, handled by Area 1, not here.)
+
+### 2. Which movement universe represents "bank movements & gaps" — **use `account.payment`, not statement lines**
+| Universe | Volume | Verdict for the screen |
+|---|---|---|
+| **(a) `account.bank.statement.line`** on the 27 bank journals | **920 lines, ALL reconciled (0 open)** | **Clean — no gap.** Statements are unused (0 `account.bank.statement`); these 920 are the only true bank lines and every one is matched. Show as "bank lines: 920/920 reconciled ✓" but it surfaces **no** exposure. |
+| **(b) `account.payment`** (bank side) | **41,515 total** · posted **39,901** · **unreconciled 3,006 / 419M EGP** | **This is the real movement+gap universe.** Inbound (receipts) **25,618** / outbound (payments) **14,283**. The gap lives here. |
+
+**Decision:** the Area-3 screen should compute movements **from `account.payment`** (grouped by bank journal +
+company + direction), and render statement-line reconciliation as a green "0 open" health badge. The 1,733 open
+*cash* statement lines belong to **Area 1** (POS drawers) and card settlements to **Area 2** — exclude both to avoid
+double-counting.
+
+**Flag-meaning (verified):** `is_reconciled` = the payment's outstanding receipt/payment leg has cleared — **THE gap
+flag**. `is_matched` = tied specifically to a *bank statement line*; since statements are unused here it is **near-
+meaningless** (posted `is_matched=False` = only 691, *fewer* than the 3,006 unreconciled → many "matched" payments are
+still unreconciled). **Use `is_reconciled`, treat `is_matched` as unreliable** (same conclusion as Area 2).
+
+### 3. The GAP types, precisely defined & sized (live, 2026-06-24)
+| # | Gap type | Definition (domain) | Count | EGP | Per-company | Oldest |
+|---|---|---|---|---|---|---|
+| **G1** | **Unreconciled posted payments** *(primary)* | `account.payment` `state=posted ∧ is_reconciled=False` | **3,006** | **419,337,089** | co1 **741 / 70.7M** · co2 **1,058 / 213.1M** · co3 **1,207 / 135.6M** | **2024-06-01** |
+| | ↳ by direction | `payment_type` | in **1,406 / 218.7M** · out **1,600 / 200.6M** | — | co1 mostly **out** (679/63.9M); co2 mostly **in** (840/**188.3M**); co3 mostly **out** (703/112.0M) | — |
+| | ↳ where they sit | `journal_id` | **1,049 on real bank journals**, **1,957 on cash/treasury/other** | — | top: BNK5/BNK03 بنك مصر 1489 (394/311) | — |
+| **G2** | **Bank-suspense net balance** *(truest "misposted/unrecorded")* | `account.move.line` on suspense accts, `parent_state=posted`, **size by `balance`** | 1,795 lines (1,725 non-zero) | **≈18,047,136 net** | **co1 `101402` = 17,786,823** · co3 `201001` = 260,313 · co2 ≈ 0 | **2024-11-03** (still growing — newest **today**) |
+| **G3** | **Draft bank journal entries** | `account.move` `journal_id ∈ bank ∧ state=draft` | **4** | 453,997 | co2 1 (**450,000**) · co3 2 (3,997) · co1 1 (0) | 2025-07-29 |
+| **G4** | Unreconciled *bank* statement lines | `…statement.line journal_id ∈ bank ∧ is_reconciled=False` | **0** | 0 | — | — (none) |
+| *(ctx)* | Open *cash* statement lines → **Area 1** | cash journals, `is_reconciled=False` | 1,733 | — | (POS drawers) | — |
+
+**G2 correction (important):** the bank-suspense accounts (`101402` co1/co2, `201001` co3, `110160`) are
+**`reconcile=False`**, so **`amount_residual` is uniformly 0** — querying residual returns *nothing* and would
+falsely read "no gap". Size the suspense gap by **net `balance`** instead (DR 33.5M − CR 15.8M = **17.79M** parked in
+co1's `101402`). **Same gotcha as the Area-2 holding accounts** — any reconcile=False clearing account must be
+monitored on net balance, never on residual/`is_reconciled`.
+
+### 4. Grouping & date keys (tested — earlier caution relaxed)
+On `account.payment` and `account.bank.statement.line`, `journal_id` / `company_id` / `state` / `date` are
+**`store=False`** (related to the stored `account.move`) — **but all three operations work** because the ORM
+delegates to the move:
+- ✅ **domain filter** — `('journal_id','in',[…])`, `('company_id','=',n)`, `('state','=','posted')` all correct.
+- ✅ **order-by** — `order='date asc'` returns the true oldest (payment 2024-06-01, stmt-line 2024-06-02).
+- ✅ **`read_group`** — grouping by `state` (3), `company_id` (3), `journal_id` (111 / 72) **all succeed**.
+
+So the earlier note *"sort/group on `move_id`'s date where possible"* is **over-cautious — group `account.payment`
+directly by `journal_id` + `company_id`**. (For `account.move.line`/suspense, `date` and `company_id` **are** stored
+— group natively.) **Reliable screen keys:** bank account = **`journal_id`**; company = **`company_id`**; period =
+**`date`** (orderable/filterable on all three models).
+
+### 5. Per-company working set
+| Company | Real bank jrnls | Posted payments | **Unreconciled (G1)** | Suspense net (G2) | Shape |
+|---|---|---|---|---|---|
+| **co1 Palme** | 10 | 14,336 | **741 / 70.7M** (mostly outbound) | **17.79M** (`101402`) | POS-heavy; suspense backlog is here |
+| **co2 ##Manufacture##** | 6 | 2,687 | **1,058 / 213.1M** (mostly **inbound** 188M) | ≈0 | smallest payment count but **largest EGP gap** — big inbound receipts uncleared |
+| **co3 #بالميه#.** | 11 | 22,878 | **1,207 / 135.6M** (mostly outbound) | 0.26M (`201001`) | highest payment volume |
+
+### Screen recommendation (how to compute "movements + gaps" per bank account/company)
+Build the screen as **bank journal × company** rows (the 27 real-bank journals, Visa excluded):
+1. **Movements** = `account.payment` grouped by `journal_id` (+ `payment_type` in/out, sum `amount`, count) over the
+   chosen `date` range — *not* statement lines.
+2. **Reconciled vs gap** = split each row on **`is_reconciled`**; the headline gap number is **G1** (posted ∧
+   `is_reconciled=False`) = **3,006 / 419M**. Render statement-line health as a static "920/920 ✓" badge.
+3. **Gaps panel** (the "money recorded but not settled" the user asked for), per company:
+   **G1** unreconciled payments → drill by journal/direction/age (oldest 2024-06-01);
+   **G2** bank-suspense **net balance** (≈18M, co1-dominated) — **computed on `balance`, reconcile=False**;
+   **G3** draft bank moves (4, one 450K in co2).
+4. **Do not double-count:** open *cash* statement lines (1,733) → Area 1; card holding balances → Area 2.
+5. Every figure **filtered by `company_id`** — the three companies are not interchangeable (co2 carries the largest
+   EGP gap despite the fewest payments).
