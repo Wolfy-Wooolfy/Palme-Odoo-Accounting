@@ -58,7 +58,7 @@ from __future__ import annotations
 
 from datetime import date, datetime, timedelta, timezone
 
-from api.models.visa import VisaReconFilter
+from api.models.visa import VisaBranchDetailFilter, VisaReconFilter
 
 # ── Company scope ───────────────────────────────────────────────────────────────
 DEFAULT_COMPANY_ID = 3            # only company with an active Geidea Visa workflow
@@ -317,6 +317,63 @@ def _map_stop_at(client, debit_lines) -> dict:
     return out
 
 
+def _map_session_info(client, debit_lines) -> dict:
+    """Map each collection debit line id → its session info for the drill-down.
+
+    Same dot-walk as :func:`_map_stop_at` (``payment_id`` →
+    ``account.payment.pos_session_id`` → ``pos.session``) but also carries the session
+    NAME and its POS ``config_id`` (the branch label), so the per-session drill-down can
+    show "which session" and "which branch". For any non-session debit (a manual
+    adjustment with no payment) ``session_id`` is ``None`` and ``stop_at`` falls back to
+    the line's accounting date — keeping it in the FIFO so residuals still reconcile to
+    pending. All lookups are id-bounded.
+
+    Returns ``{line_id: {"session_id", "session_name", "config", "stop_at"}}``.
+    """
+    payment_ids = sorted({_m2o(l.get("payment_id"))[0] for l in debit_lines if l.get("payment_id")})
+
+    sess_by_payment: dict = {}
+    if payment_ids:
+        for p in _fetch_all(client, "account.payment",
+                            [("id", "in", payment_ids)], ["id", "pos_session_id"]):
+            sid = _m2o(p.get("pos_session_id"))[0]
+            if sid:
+                sess_by_payment[p["id"]] = sid
+
+    sess_meta: dict = {}
+    session_ids = sorted(set(sess_by_payment.values()))
+    if session_ids:
+        for s in _fetch_all(client, "pos.session",
+                            [("id", "in", session_ids)], ["id", "name", "config_id", "stop_at"]):
+            d = _parse_utc(s.get("stop_at"))
+            sess_meta[s["id"]] = {
+                "name": s.get("name") or f"#{s['id']}",
+                "config": _m2o(s.get("config_id"))[1],
+                "stop_at": d.date() if d else None,
+            }
+
+    out: dict = {}
+    for l in debit_lines:
+        pid = _m2o(l.get("payment_id"))[0]
+        sid = sess_by_payment.get(pid)
+        meta = sess_meta.get(sid) if sid else None
+        if meta:
+            out[l["id"]] = {
+                "session_id": sid,
+                "session_name": meta["name"],
+                "config": meta["config"],
+                "stop_at": meta["stop_at"] or _parse_date(l.get("date")),
+            }
+        else:
+            out[l["id"]] = {
+                "session_id": None,
+                "session_name": l.get("name") or None,
+                "config": None,
+                "stop_at": _parse_date(l.get("date")),
+            }
+    return out
+
+
 def _legacy_awareness(client, today: date) -> dict:
     """Small read-only awareness block for the frozen company-1 legacy pile.
 
@@ -565,4 +622,199 @@ def compute_visa_reconciliation(client, filters: VisaReconFilter) -> dict:
         "by_branch": by_branch,
         "daily_detail": daily_detail,
         "legacy_awareness": _legacy_awareness(client, today),
+    }
+
+
+# ── Branch drill-down (Phase 3B+) ────────────────────────────────────────────────
+
+RECENT_CONFIRMATIONS_LIMIT = 12   # how many recent Geidea settlement credits to surface
+
+
+def _empty_branch_header() -> dict:
+    return {
+        "collected": 0.0, "confirmed": 0.0, "commission": 0.0, "pending": 0.0,
+        "unconfirmed_sessions_count": 0, "oldest_unconfirmed_stop_at": None,
+        "oldest_unconfirmed_working_days": 0, "status": "ok", "manually_handled": False,
+    }
+
+
+def compute_visa_branch_detail(client, filters: VisaBranchDetailFilter) -> dict:
+    """Session-level drill-down for ONE branch journal — the sessions that make up
+    that branch's pending (collected-but-unconfirmed) holding balance.
+
+    Mirrors the main screen's compute EXACTLY for this one journal so the numbers tie
+    out: same scope resolution, same liquidity (``63001``) confirmation detection, same
+    FIFO with the full clearing-credit pool (transfer + commission). The only new work
+    is splitting each holding **debit** back to its POS session (via ``payment_id``) and
+    distributing the FIFO settlement across those sessions oldest-first, so each session
+    gets a ``confirmed`` (covered) and a ``residual_unconfirmed`` slice.
+
+    INVARIANT: ``Σ residual_unconfirmed`` over the returned sessions == this branch's
+    ``pending`` on the main screen (to the cent). Both equal the holding running balance
+    ``Σ debit − Σ all credits`` — the FIFO only RE-SLICES that same total across sessions.
+
+    Returns the unconfirmed/partially-confirmed sessions (residual > 0) only — the
+    fully-settled history is irrelevant to "what's still pending" and would bury the
+    answer under hundreds of confirmed rows. Oldest-first ⇒ the oldest unconfirmed
+    session is at the top. Graceful empty (HTTP 200) when nothing is pending.
+    """
+    now_utc = datetime.now(timezone.utc)
+    today = now_utc.date()
+    company_id = filters.company_id
+    journal_id = filters.journal_id
+
+    holding_ids, branch_journals = _resolve_visa_scope(client, company_id)
+
+    base = {
+        "as_of": now_utc.isoformat(),
+        "company_id": company_id,
+        "journal_id": journal_id,
+        "branch": "—",
+        "journal_code": "",
+        "header": _empty_branch_header(),
+        "sessions": [],
+        "recent_confirmations": [],
+    }
+
+    # Unknown company (no Visa workflow) or a journal that isn't one of this company's
+    # Visa branch journals (e.g. the MISC/CSH noise journals) → graceful empty.
+    if not holding_ids or journal_id not in branch_journals:
+        return base
+
+    liq_ids = _resolve_liquidity_accounts(client, company_id)
+
+    # Bounded fetch: only THIS branch journal's posted holding lines.
+    lines = _fetch_all(
+        client, "account.move.line",
+        domain=[("account_id", "in", holding_ids), ("parent_state", "=", "posted"),
+                ("company_id", "=", company_id), ("journal_id", "=", journal_id)],
+        fields=["id", "date", "debit", "credit", "balance", "move_id", "payment_id", "name"],
+        order="date asc, id asc",
+    )
+
+    jmeta = {"code": "", "name": ""}
+    for j in client.read("account.journal", [journal_id], ["code", "name"]):
+        jmeta = {"code": j.get("code") or "", "name": j.get("name") or ""}
+    branch_name = jmeta["name"] or jmeta["code"] or "—"
+
+    if not lines:
+        return {**base, "branch": branch_name, "journal_code": jmeta["code"]}
+
+    # Confirmation moves (have a 63001 "Liquidity Transfer" leg) among this branch's
+    # credit moves — a move's liquidity-leg status is branch-independent, so restricting
+    # to this branch's credit moves yields the same classification as the main screen.
+    credit_move_ids = {_m2o(l["move_id"])[0] for l in lines
+                       if (l.get("credit") or 0) > 0 and l.get("move_id")}
+    confirmation_moves = _confirmation_moves(client, credit_move_ids, liq_ids)
+
+    debit_lines = [l for l in lines if (l.get("debit") or 0) > 0]
+    sess_info = _map_session_info(client, debit_lines)
+
+    collected = sum(float(l.get("debit") or 0.0) for l in debit_lines)
+    balance = sum(float(l.get("balance") or 0.0) for l in lines)        # == pending on main screen
+    confirmed = sum(float(l.get("credit") or 0.0) for l in lines        # 63001-only bank-receipt KPI
+                    if (l.get("credit") or 0) > 0 and _m2o(l["move_id"])[0] in confirmation_moves)
+    settled_total = collected - balance                                  # all clearing credits (FIFO pool)
+    is_manual = balance < -0.01                                          # over-credited → no pending
+
+    # Aggregate the per-session collection debits (a session can post >1 debit line; they
+    # share a stop_at, so this never changes the FIFO order or totals). Non-session debits
+    # each get their own bucket so nothing is dropped from the pending total.
+    sess_agg: dict = {}
+    for l in debit_lines:
+        info = sess_info[l["id"]]
+        sid = info["session_id"]
+        key = sid if sid is not None else f"line-{l['id']}"
+        a = sess_agg.setdefault(key, {
+            "session_id": sid,
+            "session_name": info["session_name"] or (f"#{sid}" if sid else "—"),
+            "config": info["config"],
+            "stop_at": info["stop_at"],
+            "collected": 0.0,
+        })
+        a["collected"] += float(l.get("debit") or 0.0)
+        if a["stop_at"] is None:
+            a["stop_at"] = info["stop_at"]
+
+    # FIFO: consume the clearing pool against sessions oldest-first (by stop_at). Sessions
+    # with no stop_at sort last. Each session keeps the slice the pool couldn't cover.
+    sessions_sorted = sorted(sess_agg.values(), key=lambda s: (s["stop_at"] or date.max))
+    pool = settled_total
+    pending_rows: list[dict] = []
+    oldest_date: date | None = None
+    for s in sessions_sorted:
+        col = s["collected"]
+        consume = min(pool, col) if pool > 0 else 0.0
+        if consume < 0:
+            consume = 0.0
+        pool -= consume
+        residual = col - consume
+        if residual <= 0.005:
+            continue  # fully settled — not part of the pending picture
+        stop = s["stop_at"]
+        if oldest_date is None and stop is not None:
+            oldest_date = stop
+        wd = working_days_between(stop, today) if stop else 0
+        status = "partially_confirmed" if consume > 0.005 else "unconfirmed"
+        pending_rows.append({
+            "session_id": s["session_id"],
+            "session_name": s["session_name"],
+            "branch_config": s["config"],
+            "stop_at": stop.isoformat() if stop else None,
+            "collected_amount": round(col, 2),
+            "confirmed_amount": round(consume, 2),
+            "residual_unconfirmed": round(residual, 2),
+            "status": status,
+            "working_days_since_stop_at": wd,
+            "is_late": bool(wd > LATE_WORKING_DAYS),
+        })
+    # Oldest unconfirmed at the top (oldest stop_at first); None stop_at sinks to bottom.
+    pending_rows.sort(key=lambda r: (r["stop_at"] is None, r["stop_at"] or ""))
+
+    if is_manual:
+        header_status = "manual"
+    elif not pending_rows:
+        header_status = "ok"
+    elif oldest_date and working_days_between(oldest_date, today) > LATE_WORKING_DAYS:
+        header_status = "late"
+    else:
+        header_status = "due_soon"
+
+    header = {
+        "collected": round(collected, 2),
+        "confirmed": round(confirmed, 2),
+        "commission": round(settled_total - confirmed, 2),
+        "pending": round(balance, 2),
+        "unconfirmed_sessions_count": len(pending_rows),
+        "oldest_unconfirmed_stop_at": oldest_date.isoformat() if oldest_date else None,
+        "oldest_unconfirmed_working_days": (
+            working_days_between(oldest_date, today) if oldest_date else 0),
+        "status": header_status,
+        "manually_handled": is_manual,
+    }
+
+    # Recent Geidea settlement credits (63001-confirmation legs) — the batches that have
+    # arrived for this branch, most recent first.
+    conf_lines = [l for l in lines if (l.get("credit") or 0) > 0
+                  and _m2o(l["move_id"])[0] in confirmation_moves]
+    conf_lines.sort(key=lambda l: (l.get("date") or "", l["id"]), reverse=True)
+    recent_confirmations = []
+    for l in conf_lines[:RECENT_CONFIRMATIONS_LIMIT]:
+        d = _parse_date(l.get("date"))
+        recent_confirmations.append({
+            "date": d.isoformat() if d else None,
+            "amount": round(float(l.get("credit") or 0.0), 2),
+            "ref": _m2o(l["move_id"])[1],
+            "name": l.get("name") or "",
+        })
+
+    return {
+        "as_of": now_utc.isoformat(),
+        "company_id": company_id,
+        "journal_id": journal_id,
+        "branch": branch_name,
+        "journal_code": jmeta["code"],
+        "header": header,
+        "sessions": pending_rows,
+        "recent_confirmations": recent_confirmations,
     }

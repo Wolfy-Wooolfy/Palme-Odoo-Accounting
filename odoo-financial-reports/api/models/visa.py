@@ -32,3 +32,26 @@ class VisaReconFilter(BaseModel):
     date_to: Optional[date] = Field(None, description="daily_detail window end (inclusive)")
     company_id: Optional[int] = Field(None, description="Company to scope the whole report (None = default company 3)")
     posted_only: bool = Field(True, description="Unused; accepted for filter-shape parity")
+
+
+class VisaBranchDetailFilter(BaseModel):
+    """Filter for the Visa branch session-level drill-down (Area 2, Phase 3B+).
+
+    Opens ONE branch journal of ONE company and lists the POS sessions that make up
+    that branch's still-pending (collected-but-not-yet-confirmed) holding balance —
+    so the accountant sees exactly which session-batches are unconfirmed. Confirmation
+    is per branch-batch (a Geidea lump settles many sessions at once), so this is the
+    SESSION level — NOT a per-individual-sale confirmation.
+
+    ``company_id`` and ``journal_id`` are both REQUIRED (the branch is meaningless
+    without its owning company). ``date_from``/``date_to`` are accepted only for
+    shared-frontend-filter-shape parity and are IGNORED: like the main screen's
+    running-balance view, the pending list is always full-history "as of today" (a
+    holding balance can be months old, so a date window would hide it).
+    """
+
+    company_id: int = Field(..., description="Company that owns the branch journal (required)")
+    journal_id: int = Field(..., description="The branch Visa journal to drill into (required)")
+    date_from: Optional[date] = Field(None, description="Ignored; accepted for filter-shape parity")
+    date_to: Optional[date] = Field(None, description="Ignored; accepted for filter-shape parity")
+    posted_only: bool = Field(True, description="Unused; the service always reads only posted lines")

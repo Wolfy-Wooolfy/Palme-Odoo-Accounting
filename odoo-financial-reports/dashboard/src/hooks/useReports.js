@@ -3,7 +3,7 @@ import {
   fetchTrialBalance, fetchProfitLoss, fetchBalanceSheet,
   fetchDiagnostic, fetchCustomerAging, fetchVendorAging,
   fetchCashBank, fetchGeneralLedger, fetchSales, fetchPurchases,
-  fetchPosSessions, fetchVisaReconciliation,
+  fetchPosSessions, fetchVisaReconciliation, fetchVisaBranchDetail,
 } from '../api/reports';
 
 const STALE = 5 * 60 * 1000; // 5 min
@@ -112,6 +112,18 @@ export const useVisaReconciliation = (filters, options = {}) =>
     queryKey: ['visa-reconciliation', filters],
     queryFn: () => fetchVisaReconciliation(filters),
     enabled: !!(filters?.date_from && filters?.date_to),
+    staleTime: STALE,
+    ...options,
+  });
+
+// Lazy session-level drill-down for one branch — only fires once a branch is opened
+// (company_id + journal_id both present). Dates are ignored server-side (full-history
+// "as of today"), so they are not part of the enable gate.
+export const useVisaBranchDetail = (filters, options = {}) =>
+  useQuery({
+    queryKey: ['visa-branch-detail', filters],
+    queryFn: () => fetchVisaBranchDetail(filters),
+    enabled: !!(filters?.company_id && filters?.journal_id),
     staleTime: STALE,
     ...options,
   });
